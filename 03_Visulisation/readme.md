@@ -1,957 +1,1025 @@
-# Matplotlib Mastery Checklist
+# Matplotlib & Seaborn Mastery Checklists
+
+> A complete, phase-by-phase learning roadmap covering data visualization with Matplotlib and Seaborn — from fundamentals to publication-quality graphics and production EDA workflows.
 
 ---
 
-# Phase 0: Prerequisites
+## Table of Contents
 
-## Python Fundamentals
-
-* [ ] Functions
-* [ ] Modules
-* [ ] OOP Basics
-
-## NumPy
-
-* [ ] Arrays
-* [ ] Vectorized Operations
-* [ ] Shape and Dimensions
-
-## Data Fundamentals
-
-* [ ] Tables
-* [ ] Time Series
-* [ ] Distributions
+1. [Matplotlib](#1-matplotlib)
+2. [Seaborn](#2-seaborn)
 
 ---
 
-# Phase 1: Why Visualization Exists
-
-## The Problem
-
-* [ ] Large datasets are hard to understand
-* [ ] Tables hide patterns
-* [ ] Humans recognize visual patterns quickly
-
-## First Principles
-
-* [ ] What is data visualization?
-* [ ] Why charts exist
-* [ ] Choosing the right chart
-
-## Understand
-
-* [ ] Trend
-* [ ] Comparison
-* [ ] Distribution
-* [ ] Relationship
-* [ ] Composition
+# 1. Matplotlib
 
 ---
 
-# Phase 2: Matplotlib Fundamentals
+## Phase 0: Prerequisites
 
-## Setup
+### Python Fundamentals
 
-* [ ] Import pyplot
-* [ ] Create first plot
+- [ ] Functions & Modules
+- [ ] OOP Basics (classes, methods)
+- [ ] List comprehensions
 
-## Core Functions
+### NumPy
 
-* [ ] plt.plot()
-* [ ] plt.show()
+- [ ] Arrays & Vectorized Operations
+- [ ] Shape and Dimensions
+- [ ] Boolean indexing
 
-## Understand
+### Data Fundamentals
 
-* [ ] Figure
-* [ ] Axes
-
-### Exercises
-
-* [ ] Plot simple line chart
-
----
-
-# Phase 3: Figure & Axes Model
-
-## Core Architecture
-
-* [ ] Figure
-* [ ] Axes
-* [ ] Axis
-
-## Learn
-
-* [ ] plt.figure()
-* [ ] plt.subplots()
-
-## Understand
-
-* [ ] Object-Oriented API
-* [ ] pyplot API
-
-### Exercises
-
-* [ ] Multiple plots
+- [ ] Tables & DataFrames
+- [ ] Time Series
+- [ ] Distributions
 
 ---
 
-# Phase 4: Line Charts
+## Phase 1: Why Visualization Exists
 
-## Learn
+### The Problem
 
-* [ ] plot()
+- [ ] Large datasets are hard to understand as tables
+- [ ] Tables hide patterns, trends, and outliers
+- [ ] Humans recognize visual patterns far faster than numbers
 
-## Customization
+### First Principles
 
-* [ ] Labels
-* [ ] Titles
-* [ ] Legends
+- [ ] What is data visualization?
+- [ ] Why charts exist
+- [ ] Choosing the right chart for the right question
 
-### Exercises
+### Chart Purpose Categories
 
-* [ ] Temperature tracker
-* [ ] Stock price graph
+- [ ] Trend — how does something change over time?
+- [ ] Comparison — how do things differ?
+- [ ] Distribution — how is data spread?
+- [ ] Relationship — how do variables relate?
+- [ ] Composition — what makes up the whole?
 
----
+### Understand
 
-# Phase 5: Scatter Plots
-
-## Learn
-
-* [ ] scatter()
-
-## Understand
-
-* [ ] Correlation
-* [ ] Outliers
-
-### Exercises
-
-* [ ] Height vs Weight analysis
+- [ ] A chart should answer one clear question
+- [ ] Wrong chart type = miscommunication
+- [ ] Simplicity beats complexity in visualization
 
 ---
 
-# Phase 6: Bar Charts
+## Phase 2: Matplotlib Fundamentals
 
-## Learn
+### Setup
 
-* [ ] bar()
-* [ ] barh()
+- [ ] `import matplotlib.pyplot as plt`
+- [ ] Create first plot
+- [ ] Inline display in notebooks (`%matplotlib inline`)
 
-## Use Cases
+### Core Functions
 
-* [ ] Category comparison
+- [ ] `plt.plot()`
+- [ ] `plt.show()`
 
-### Exercises
+### Understand
 
-* [ ] Product sales chart
+- [ ] Figure: the whole canvas
+- [ ] Axes: a single plot within the figure
+- [ ] Axis: the x or y number line
 
----
-
-# Phase 7: Histograms
-
-## Learn
-
-* [ ] hist()
-
-## Understand
-
-* [ ] Distribution
-* [ ] Bins
-* [ ] Frequency
-
-### Exercises
-
-* [ ] Exam score distribution
+**Exercises**
+- [ ] Plot a simple line chart from a list
 
 ---
 
-# Phase 8: Pie Charts
+## Phase 3: Figure & Axes Model
 
-## Learn
+### Core Architecture
 
-* [ ] pie()
+- [ ] Figure (top-level container)
+- [ ] Axes (individual plot)
+- [ ] Axis (x-axis, y-axis)
+- [ ] Artist (everything drawn on figure)
 
-## Understand
+### Learn
 
-* [ ] Part-to-whole relationships
+- [ ] `plt.figure()` — create figure
+- [ ] `plt.subplots()` — create figure + axes together
+- [ ] `fig, ax = plt.subplots()` pattern
 
-### Exercises
+### Two APIs
 
-* [ ] Budget allocation chart
+- [ ] pyplot API (stateful, quick plots): `plt.plot()`
+- [ ] Object-Oriented API (recommended): `ax.plot()`
 
----
+### Understand
 
-# Phase 9: Subplots
+- [ ] When to use each API
+- [ ] Why OO API is better for complex figures
 
-## Learn
-
-* [ ] subplot()
-* [ ] subplots()
-
-## Layouts
-
-* [ ] Rows
-* [ ] Columns
-* [ ] Grid layouts
-
-### Exercises
-
-* [ ] Dashboard with multiple charts
+**Exercises**
+- [ ] Create figure with multiple axes
+- [ ] Use OO API for a two-panel chart
 
 ---
 
-# Phase 10: Styling & Customization
+## Phase 4: Line Charts
 
-## Learn
+### Learn
 
-* [ ] Colors
-* [ ] Line styles
-* [ ] Markers
+- [ ] `ax.plot(x, y)`
+- [ ] Multiple lines on same axes
 
-## Labels
+### Customization
 
-* [ ] xlabel()
-* [ ] ylabel()
-* [ ] title()
+- [ ] Labels: `ax.set_xlabel()`, `ax.set_ylabel()`
+- [ ] Title: `ax.set_title()`
+- [ ] Legend: `ax.legend()`
+- [ ] Line color, style, width, marker
 
-### Exercises
-
-* [ ] Professional report charts
-
----
-
-# Phase 11: Legends & Annotations
-
-## Learn
-
-* [ ] legend()
-* [ ] annotate()
-
-## Understand
-
-* [ ] Highlighting important insights
-
-### Exercises
-
-* [ ] Annotated stock chart
+**Exercises**
+- [ ] Temperature tracker over time
+- [ ] Multi-line stock price graph
 
 ---
 
-# Phase 12: Axis Control
+## Phase 5: Scatter Plots
 
-## Learn
+### Learn
 
-* [ ] xlim()
-* [ ] ylim()
+- [ ] `ax.scatter(x, y)`
+- [ ] Color by category (`c=`)
+- [ ] Size by value (`s=`)
 
-## Advanced
+### Understand
 
-* [ ] Log Scale
-* [ ] Tick Formatting
+- [ ] Visualizing correlation
+- [ ] Spotting outliers
+- [ ] Overplotting and solutions (alpha, jitter) (Added)
 
-### Exercises
-
-* [ ] Scientific data plots
-
----
-
-# Phase 13: Date & Time Visualization
-
-## Learn
-
-* [ ] Date axes
-* [ ] Date formatting
-
-### Exercises
-
-* [ ] Sales trend dashboard
-* [ ] Time-series visualization
+**Exercises**
+- [ ] Height vs Weight scatter plot
+- [ ] Color-coded scatter by category
 
 ---
 
-# Phase 14: Statistical Visualization
+## Phase 6: Bar Charts
 
-## Learn
+### Learn
 
-* [ ] Box Plot
-* [ ] Violin Plot
-* [ ] Error Bars
+- [ ] `ax.bar()` — vertical bars
+- [ ] `ax.barh()` — horizontal bars
+- [ ] Grouped bar charts (Added)
+- [ ] Stacked bar charts (Added)
 
-## Understand
+### Understand
 
-* [ ] Median
-* [ ] Quartiles
-* [ ] Variability
+- [ ] Category comparison
+- [ ] When to use horizontal vs vertical
 
-### Exercises
-
-* [ ] Student score analysis
-
----
-
-# Phase 15: Images
-
-## Learn
-
-* [ ] imshow()
-
-## Understand
-
-* [ ] Pixel grids
-* [ ] Color maps
-
-### Exercises
-
-* [ ] Display images
-* [ ] Heatmaps
+**Exercises**
+- [ ] Product sales chart
+- [ ] Grouped comparison chart
 
 ---
 
-# Phase 16: 3D Plotting
+## Phase 7: Histograms
 
-## Learn
+### Learn
 
-* [ ] 3D Axes
+- [ ] `ax.hist()`
+- [ ] Bin count and bin edges
+- [ ] Density parameter (`density=True`)
 
-## Plots
+### Understand
 
-* [ ] Surface Plot
-* [ ] Scatter 3D
+- [ ] Distribution shape
+- [ ] Bins: too few vs too many (Added)
+- [ ] Frequency vs density
 
-### Exercises
-
-* [ ] Terrain visualization
-
----
-
-# Phase 17: Animation
-
-## Learn
-
-* [ ] FuncAnimation
-
-## Understand
-
-* [ ] Frame updates
-
-### Exercises
-
-* [ ] Animated sine wave
+**Exercises**
+- [ ] Exam score distribution
+- [ ] Compare two distributions on same axes
 
 ---
 
-# Phase 18: Saving Figures
+## Phase 8: Pie Charts
 
-## Learn
+### Learn
 
-* [ ] savefig()
+- [ ] `ax.pie()`
+- [ ] Explode, labels, percentages
 
-## Formats
+### Understand
 
-* [ ] PNG
-* [ ] SVG
-* [ ] PDF
+- [ ] Part-to-whole relationships
+- [ ] When NOT to use pie charts (Added — hard to compare slices)
+- [ ] Prefer bar charts for comparisons
 
-## Understand
-
-* [ ] Resolution
-* [ ] DPI
-
-### Exercises
-
-* [ ] Export publication-quality figures
+**Exercises**
+- [ ] Budget allocation chart
 
 ---
 
-# Phase 19: Performance
+## Phase 9: Subplots & Layouts
 
-## Understand
+### Learn
 
-* [ ] Rendering cost
-* [ ] Large datasets
+- [ ] `plt.subplot()` — single subplot
+- [ ] `plt.subplots(nrows, ncols)` — grid of subplots
+- [ ] `fig.add_subplot()` — manual control
 
-## Learn
+### Layouts
 
-* [ ] Efficient plotting
+- [ ] Row and column grids
+- [ ] Shared axes (`sharex=`, `sharey=`)
+- [ ] `GridSpec` for complex layouts (Added)
+- [ ] `constrained_layout=True` for spacing (Added)
 
-### Exercises
-
-* [ ] Plot million-point dataset
-
----
-
-# Phase 20: Matplotlib Internals
-
-## Architecture
-
-* [ ] Artist Model
-* [ ] Figure Canvas
-* [ ] Renderer
-
-## Understand
-
-* [ ] How plots are drawn
-
-## Advanced
-
-* [ ] Backend system
-* [ ] Interactive backends
-* [ ] Non-interactive backends
+**Exercises**
+- [ ] 2×2 dashboard layout
+- [ ] Shared-axis time series comparison
 
 ---
 
-# Phase 21: Ecosystem Integration
+## Phase 10: Styling & Customization
 
-## Learn
+### Learn
 
-* [ ] Matplotlib + NumPy
-* [ ] Matplotlib + Pandas
-* [ ] Matplotlib + Seaborn
+- [ ] Colors (named, hex, RGB)
+- [ ] Line styles (solid, dashed, dotted)
+- [ ] Markers
+- [ ] `plt.style.use()` — built-in styles (Added)
+- [ ] `mpl.rcParams` — global defaults (Added)
 
----
+### Labels & Titles
 
-# Phase 22: Visualization Design
+- [ ] `ax.set_xlabel()` / `ax.set_ylabel()` / `ax.set_title()`
+- [ ] Font size and weight
+- [ ] `fig.suptitle()` — figure-level title (Added)
 
-## Principles
-
-* [ ] Clarity
-* [ ] Simplicity
-* [ ] Data-Ink Ratio
-
-## Avoid
-
-* [ ] Misleading charts
-* [ ] Excessive decoration
-
-### Exercises
-
-* [ ] Redesign poor visualizations
+**Exercises**
+- [ ] Professional report-ready chart
+- [ ] Apply ggplot or seaborn style
 
 ---
 
-# Phase 23: Real Projects
+## Phase 11: Legends & Annotations
 
-## Beginner
+### Learn
 
-* [ ] Weather Dashboard
-* [ ] Expense Tracker Charts
+- [ ] `ax.legend()` — auto or manual
+- [ ] Legend placement and style
+- [ ] `ax.annotate()` — arrow + text
+- [ ] `ax.text()` — plain text label (Added)
+- [ ] `ax.axhline()` / `ax.axvline()` — reference lines (Added)
+- [ ] `ax.axhspan()` / `ax.axvspan()` — shaded regions (Added)
 
-## Intermediate
+### Understand
 
-* [ ] Sales Dashboard
-* [ ] Financial Analytics
+- [ ] Highlighting key data points
+- [ ] Adding context to charts
 
-## Advanced
-
-* [ ] Scientific Visualization Tool
-* [ ] Data Analysis Report Generator
-
-## Expert
-
-* [ ] Custom Plotting Library
-* [ ] Research Publication Figures
+**Exercises**
+- [ ] Annotated stock chart with key events
+- [ ] Chart with reference threshold line
 
 ---
 
-# Final Mastery
+## Phase 12: Axis Control
 
-Can Explain:
+### Learn
 
-* [ ] Figure
-* [ ] Axes
-* [ ] Artist Model
-* [ ] Renderer
-* [ ] Backends
-* [ ] Histograms
-* [ ] Scatter Plots
-* [ ] Box Plots
-* [ ] Animation Pipeline
+- [ ] `ax.set_xlim()` / `ax.set_ylim()` — zoom
+- [ ] `ax.set_xticks()` / `ax.set_yticks()` — tick positions
+- [ ] `ax.set_xticklabels()` — custom labels
+- [ ] Log scale: `ax.set_xscale('log')`
+- [ ] `ax.invert_xaxis()` (Added)
+- [ ] `ticker` module for formatting (Added)
 
-Can Build:
-
-* [ ] Dashboards
-* [ ] Scientific Visualizations
-* [ ] Reports
-* [ ] Publication-Quality Graphics
-* [ ] Interactive Charts
-
-
-# Seaborn Mastery Checklist
+**Exercises**
+- [ ] Scientific data with log scale
+- [ ] Custom tick labels (months, categories)
 
 ---
 
-# Phase 0: Prerequisites
+## Phase 13: Date & Time Visualization
 
-## Python Fundamentals
+### Learn
 
-* [ ] Functions
-* [ ] Modules
-* [ ] Dictionaries
+- [ ] Date axes with `matplotlib.dates`
+- [ ] `DateFormatter` and `DateLocator`
+- [ ] Pandas datetime integration (Added)
 
-## NumPy
-
-* [ ] Arrays
-* [ ] Broadcasting
-* [ ] Aggregations
-
-## Pandas
-
-* [ ] DataFrame
-* [ ] Filtering
-* [ ] GroupBy
-* [ ] Missing Values
-
-## Matplotlib
-
-* [ ] Figure
-* [ ] Axes
-* [ ] Plot Basics
+**Exercises**
+- [ ] Monthly sales trend
+- [ ] Time-series with formatted date axis
 
 ---
 
-# Phase 1: Why Seaborn Exists
+## Phase 14: Statistical Visualization
 
-## The Problem
+### Learn
 
-* [ ] Matplotlib requires lots of code
-* [ ] Statistical charts are repetitive
-* [ ] DataFrames should work directly
+- [ ] Box Plot: `ax.boxplot()`
+- [ ] Violin Plot: `ax.violinplot()`
+- [ ] Error Bars: `ax.errorbar()`
+- [ ] Step plot: `ax.step()` (Added)
+- [ ] Fill between: `ax.fill_between()` (Added — confidence bands)
 
-## First Principles
+### Understand
 
-* [ ] Visualization vs Statistical Visualization
-* [ ] Exploratory Data Analysis (EDA)
-* [ ] Data Storytelling
+- [ ] Median, quartiles, IQR from box plots
+- [ ] Distribution shape from violin plots
+- [ ] Uncertainty representation with error bars
 
-## Understand
-
-* [ ] Seaborn is built on Matplotlib
-* [ ] Seaborn works naturally with DataFrames
-
----
-
-# Phase 2: Seaborn Fundamentals
-
-## Setup
-
-* [ ] Import seaborn
-* [ ] Load datasets
-
-## Core Functions
-
-* [ ] sns.set_theme()
-* [ ] sns.load_dataset()
-
-## Understand
-
-* [ ] Figure-level vs Axes-level APIs
-
-### Exercises
-
-* [ ] First Seaborn plot
+**Exercises**
+- [ ] Student score box plot by group
+- [ ] Confidence band on time series
 
 ---
 
-# Phase 3: Understanding Data Types
+## Phase 15: Heatmaps & Images
 
-## Numerical Data
+### Learn
 
-* [ ] Continuous variables
-* [ ] Discrete variables
+- [ ] `ax.imshow()` — display image or matrix
+- [ ] Color maps (`cmap=`)
+- [ ] `plt.colorbar()` (Added)
+- [ ] `ax.pcolormesh()` (Added — for grid data)
 
-## Categorical Data
+### Understand
 
-* [ ] Nominal
-* [ ] Ordinal
+- [ ] Pixel grids and color mapping
+- [ ] Diverging vs sequential colormaps
+- [ ] Perceptually uniform colormaps (viridis, plasma) (Added)
 
-## Relationships
-
-* [ ] Numerical ↔ Numerical
-* [ ] Numerical ↔ Categorical
-* [ ] Categorical ↔ Categorical
-
-## Learn
-
-* [ ] Choosing the right chart
+**Exercises**
+- [ ] Correlation heatmap
+- [ ] Display image data
 
 ---
 
-# Phase 4: Distribution Plots
+## Phase 16: 3D Plotting
 
-## Learn
+### Learn
 
-* [ ] histplot()
-* [ ] kdeplot()
-* [ ] displot()
+- [ ] `from mpl_toolkits.mplot3d import Axes3D`
+- [ ] Surface Plot: `ax.plot_surface()`
+- [ ] 3D Scatter: `ax.scatter()`
+- [ ] 3D Line: `ax.plot3D()` (Added)
+- [ ] Contour Plot: `ax.contour()` (Added)
 
-## Understand
-
-* [ ] Distribution
-* [ ] Density
-* [ ] Skewness
-* [ ] Outliers
-
-### Exercises
-
-* [ ] Analyze exam scores
-* [ ] Analyze salaries
+**Exercises**
+- [ ] Terrain / function surface visualization
+- [ ] 3D data exploration
 
 ---
 
-# Phase 5: Relationship Plots
+## Phase 17: Animation
 
-## Learn
+### Learn
 
-* [ ] scatterplot()
-* [ ] lineplot()
-* [ ] relplot()
+- [ ] `FuncAnimation` from `matplotlib.animation`
+- [ ] Frame update function
+- [ ] `ArtistAnimation` (Added — precomputed frames)
+- [ ] Saving animations as GIF/MP4 (Added)
 
-## Understand
-
-* [ ] Correlation
-* [ ] Trends
-* [ ] Outliers
-
-### Exercises
-
-* [ ] Height vs Weight
-* [ ] Sales Trends
+**Exercises**
+- [ ] Animated sine wave
+- [ ] Animated scatter plot
 
 ---
 
-# Phase 6: Categorical Plots
+## Phase 18: Saving Figures
 
-## Learn
+### Learn
 
-* [ ] barplot()
-* [ ] countplot()
-* [ ] catplot()
+- [ ] `fig.savefig()`
+- [ ] Formats: PNG, SVG, PDF, EPS
 
-## Understand
+### Quality Control
 
-* [ ] Category comparisons
-* [ ] Frequency analysis
+- [ ] DPI (dots per inch)
+- [ ] `bbox_inches='tight'` to avoid clipping (Added)
+- [ ] Transparent background: `transparent=True` (Added)
 
-### Exercises
-
-* [ ] Product sales categories
-
----
-
-# Phase 7: Box Plots & Violin Plots
-
-## Learn
-
-* [ ] boxplot()
-* [ ] violinplot()
-
-## Understand
-
-* [ ] Median
-* [ ] Quartiles
-* [ ] Outliers
-* [ ] Distribution shape
-
-### Exercises
-
-* [ ] Compare salaries by department
+**Exercises**
+- [ ] Export publication-quality figures at 300 DPI
 
 ---
 
-# Phase 8: Pairwise Analysis
+## Phase 19: Performance
 
-## Learn
+### Understand
 
-* [ ] pairplot()
+- [ ] Rendering cost with large datasets
+- [ ] Raster vs vector formats
 
-## Understand
+### Learn
 
-* [ ] Feature relationships
-* [ ] Multivariable exploration
+- [ ] Downsampling before plotting (Added)
+- [ ] `ax.plot()` vs `ax.scatter()` performance difference (Added)
+- [ ] Blitting for animations (Added)
 
-### Exercises
-
-* [ ] Iris dataset analysis
-
----
-
-# Phase 9: Correlation Analysis
-
-## Learn
-
-* [ ] heatmap()
-
-## Understand
-
-* [ ] Correlation matrix
-* [ ] Positive correlation
-* [ ] Negative correlation
-
-### Exercises
-
-* [ ] Feature correlation study
+**Exercises**
+- [ ] Plot 1M-point dataset efficiently
 
 ---
 
-# Phase 10: Regression Visualization
+## Phase 20: Matplotlib Internals
 
-## Learn
+### Architecture
 
-* [ ] regplot()
-* [ ] lmplot()
+- [ ] Artist Model (Figure, Axes, Line2D, Text are all Artists)
+- [ ] Figure Canvas
+- [ ] Renderer
 
-## Understand
+### Backend System
 
-* [ ] Regression line
-* [ ] Trend estimation
+- [ ] Interactive backends (TkAgg, Qt5Agg)
+- [ ] Non-interactive backends (Agg for file output)
+- [ ] Setting backends: `matplotlib.use()`
 
-### Exercises
+### Understand
 
-* [ ] Predictive relationship exploration
-
----
-
-# Phase 11: Faceting
-
-## Learn
-
-* [ ] FacetGrid
-* [ ] row=
-* [ ] col=
-* [ ] hue=
-
-## Understand
-
-* [ ] Small multiples
-* [ ] Multi-dimensional analysis
-
-### Exercises
-
-* [ ] Regional sales comparison
+- [ ] How Matplotlib draws: Artist → Canvas → Renderer
+- [ ] Why understanding internals helps debugging
 
 ---
 
-# Phase 12: Styling & Themes
+## Phase 21: Ecosystem Integration
 
-## Learn
+### Learn
 
-* [ ] set_theme()
-* [ ] set_style()
-
-## Themes
-
-* [ ] whitegrid
-* [ ] darkgrid
-* [ ] white
-* [ ] ticks
-
-### Exercises
-
-* [ ] Dashboard styling
+- [ ] Matplotlib + NumPy (direct array plotting)
+- [ ] Matplotlib + Pandas (`df.plot()` uses Matplotlib)
+- [ ] Matplotlib + Seaborn (Seaborn returns Axes objects)
+- [ ] Matplotlib + Scikit-Learn (plotting decision boundaries) (Added)
+- [ ] Matplotlib + SciPy (scientific plots) (Added)
 
 ---
 
-# Phase 13: Color Theory
+## Phase 22: Visualization Design Principles
 
-## Learn
+### Principles
 
-* [ ] color_palette()
+- [ ] Clarity — one message per chart
+- [ ] Simplicity — remove chart junk
+- [ ] Data-Ink Ratio (Tufte) — maximize data, minimize ink
+- [ ] Truthful scaling — don't truncate axes misleadingly (Added)
+- [ ] Color accessibility — colorblind-friendly palettes (Added)
 
-## Understand
+### Avoid
 
-* [ ] Sequential palettes
-* [ ] Diverging palettes
-* [ ] Qualitative palettes
+- [ ] Misleading charts (truncated y-axis, 3D pie charts)
+- [ ] Excessive decoration (grid lines, backgrounds)
+- [ ] Overloaded charts (too many series)
 
-### Exercises
-
-* [ ] Design accessible charts
-
----
-
-# Phase 14: Figure-Level APIs
-
-## Learn
-
-* [ ] relplot()
-* [ ] catplot()
-* [ ] displot()
-* [ ] jointplot()
-
-## Understand
-
-* [ ] Automatic figure management
+**Exercises**
+- [ ] Redesign a poor visualization
+- [ ] Audit a chart for misleading elements
 
 ---
 
-# Phase 15: Axes-Level APIs
+## Phase 23: Real Projects
 
-## Learn
+### Beginner
+- [ ] Weather Dashboard
+- [ ] Expense Tracker Charts
 
-* [ ] scatterplot()
-* [ ] lineplot()
-* [ ] boxplot()
-* [ ] barplot()
+### Intermediate
+- [ ] Sales Analytics Dashboard
+- [ ] Financial Analytics Charts
 
-## Understand
+### Advanced
+- [ ] Scientific Visualization Tool
+- [ ] Data Analysis Report Generator
 
-* [ ] Integration with Matplotlib
-
----
-
-# Phase 16: Statistical Estimation
-
-## Understand
-
-* [ ] Confidence Intervals
-* [ ] Error Bars
-* [ ] Aggregation
-
-## Learn
-
-* [ ] estimator=
-* [ ] errorbar=
-
-### Exercises
-
-* [ ] Compare means with confidence intervals
+### Expert
+- [ ] Custom Plotting Library
+- [ ] Research Publication Figures
+- [ ] Interactive Dashboard (Added — with ipywidgets)
 
 ---
 
-# Phase 17: Working with Real Data
+## Final Mastery
 
-## Learn
+**Can Explain:** Figure, Axes, Artist Model, Renderer, Backends, pyplot vs OO API, Histograms, Scatter Plots, Box Plots, Animation Pipeline, Data-Ink Ratio
 
-* [ ] Missing values visualization
-* [ ] Data cleaning before plotting
-
-### Exercises
-
-* [ ] Customer analytics
-* [ ] Sales analytics
+**Can Build:** Dashboards, Scientific Visualizations, Reports, Publication-Quality Graphics, Animated Charts, Custom Visualization Tools
 
 ---
 
-# Phase 18: Seaborn + Pandas
-
-## Learn
-
-* [ ] DataFrame integration
-* [ ] GroupBy + Visualization
-
-### Exercises
-
-* [ ] EDA workflow
+# 2. Seaborn
 
 ---
 
-# Phase 19: Seaborn + Matplotlib
+## Phase 0: Prerequisites
 
-## Learn
+### Python Fundamentals
 
-* [ ] Custom axes
-* [ ] Custom figure control
+- [ ] Functions & Modules
+- [ ] Dictionaries
+- [ ] List comprehensions
 
-## Understand
+### NumPy
 
-* [ ] When to drop to Matplotlib
+- [ ] Arrays & Broadcasting
+- [ ] Aggregations
 
-### Exercises
+### Pandas
 
-* [ ] Advanced customization
+- [ ] DataFrame creation and indexing
+- [ ] Filtering & GroupBy
+- [ ] Missing Values handling
+- [ ] Long vs wide format data (Added — Seaborn prefers long format)
 
----
+### Matplotlib
 
-# Phase 20: Performance
-
-## Understand
-
-* [ ] Large dataset visualization
-* [ ] Sampling strategies
-
-### Exercises
-
-* [ ] Million-row dataset visualization
+- [ ] Figure & Axes model
+- [ ] Plot basics
+- [ ] OO API
 
 ---
 
-# Phase 21: Seaborn Internals
+## Phase 1: Why Seaborn Exists
 
-## Architecture
+### The Problem
 
-* [ ] Figure-level API
-* [ ] Axes-level API
+- [ ] Matplotlib requires lots of boilerplate code
+- [ ] Statistical charts (CI, regression) are tedious to build manually
+- [ ] DataFrames should integrate directly with plotting
 
-## Understand
+### First Principles
 
-* [ ] Relationship with Matplotlib
-* [ ] Rendering pipeline
+- [ ] Visualization vs Statistical Visualization
+- [ ] Exploratory Data Analysis (EDA) workflow
+- [ ] Data Storytelling
 
-## Advanced
+### Understand
 
-* [ ] Objects API (Modern Seaborn)
-
----
-
-# Phase 22: Exploratory Data Analysis Workflow
-
-## Workflow
-
-* [ ] Inspect data
-* [ ] Check distributions
-* [ ] Check missing values
-* [ ] Analyze relationships
-* [ ] Find outliers
-* [ ] Build insights
-
-### Exercises
-
-* [ ] Full EDA project
+- [ ] Seaborn is built on top of Matplotlib
+- [ ] Seaborn works natively with DataFrames
+- [ ] Seaborn handles statistical aggregation automatically
+- [ ] Every Seaborn plot returns a Matplotlib Axes (or FacetGrid) object
 
 ---
 
-# Phase 23: Real Projects
+## Phase 2: Seaborn Fundamentals
 
-## Beginner
+### Setup
 
-* [ ] Student Performance Analysis
-* [ ] Expense Analysis
+- [ ] `import seaborn as sns`
+- [ ] `sns.set_theme()` — apply default theme
+- [ ] `sns.load_dataset()` — built-in datasets for practice
 
-## Intermediate
+### Core Concepts
 
-* [ ] Sales Analytics Dashboard
-* [ ] HR Analytics
+- [ ] Figure-level functions (return FacetGrid): `relplot()`, `catplot()`, `displot()`
+- [ ] Axes-level functions (return Axes): `scatterplot()`, `boxplot()`, `histplot()`
 
-## Advanced
+### Understand
 
-* [ ] Customer Segmentation Analysis
-* [ ] Product Analytics
+- [ ] When to use figure-level vs axes-level
+- [ ] Figure-level → use for faceting and automatic layout
+- [ ] Axes-level → use when embedding in custom Matplotlib figures
 
-## Expert
-
-* [ ] End-to-End EDA Framework
-* [ ] Business Intelligence Visualization Suite
+**Exercises**
+- [ ] First Seaborn plot using a built-in dataset
 
 ---
 
-# Final Mastery
+## Phase 3: Understanding Data Types for Visualization
 
-Can Explain:
+### Numerical Data
 
-* [ ] Distribution Analysis
-* [ ] Relationship Analysis
-* [ ] Correlation
-* [ ] Confidence Intervals
-* [ ] Figure-level APIs
-* [ ] Axes-level APIs
-* [ ] Faceting
-* [ ] Seaborn Architecture
+- [ ] Continuous variables
+- [ ] Discrete variables
 
-Can Build:
+### Categorical Data
 
-* [ ] EDA Reports
-* [ ] Analytics Dashboards
-* [ ] Statistical Visualizations
-* [ ] Business Reports
-* [ ] Insight Presentations
+- [ ] Nominal (no order)
+- [ ] Ordinal (ordered)
+
+### Relationship Matrix
+
+| X | Y | Best Chart |
+|---|---|---|
+| Numerical | Numerical | Scatter, Line |
+| Categorical | Numerical | Bar, Box, Violin |
+| Categorical | Categorical | Count, Heatmap |
+| Numerical | — | Histogram, KDE |
+
+### Understand
+
+- [ ] Choosing the right chart based on data types
+- [ ] How `hue=` adds a third variable to any plot
+
+---
+
+## Phase 4: Distribution Plots
+
+### Learn
+
+- [ ] `sns.histplot()` — histogram with optional KDE
+- [ ] `sns.kdeplot()` — smooth density curve
+- [ ] `sns.displot()` — figure-level distribution
+- [ ] `sns.ecdfplot()` — empirical CDF (Added)
+- [ ] `sns.rugplot()` — individual data marks (Added)
+
+### Understand
+
+- [ ] Distribution shape, center, spread
+- [ ] Kernel density estimation intuition
+- [ ] Bandwidth effect on KDE (Added)
+- [ ] Overlapping distributions with `hue=`
+
+**Exercises**
+- [ ] Analyze exam score distribution
+- [ ] Compare salary distributions by gender
+
+---
+
+## Phase 5: Relationship Plots
+
+### Learn
+
+- [ ] `sns.scatterplot()` — point cloud
+- [ ] `sns.lineplot()` — line with CI band
+- [ ] `sns.relplot()` — figure-level wrapper
+
+### Understand
+
+- [ ] Correlation direction and strength
+- [ ] Trends over time
+- [ ] Using `hue=`, `size=`, `style=` for extra dimensions (Added)
+
+**Exercises**
+- [ ] Height vs Weight scatter
+- [ ] Sales trends with confidence bands
+
+---
+
+## Phase 6: Categorical Plots
+
+### Learn
+
+- [ ] `sns.barplot()` — mean with CI bars
+- [ ] `sns.countplot()` — frequency of categories
+- [ ] `sns.pointplot()` — means connected by lines (Added)
+- [ ] `sns.stripplot()` — jittered data points (Added)
+- [ ] `sns.swarmplot()` — non-overlapping points (Added)
+- [ ] `sns.catplot()` — figure-level categorical
+
+### Understand
+
+- [ ] Difference between barplot (aggregated) and countplot (frequency)
+- [ ] When to show raw data vs summary statistics
+
+**Exercises**
+- [ ] Product sales by category
+- [ ] Count of customers by region
+
+---
+
+## Phase 7: Box Plots & Violin Plots
+
+### Learn
+
+- [ ] `sns.boxplot()` — five-number summary + outliers
+- [ ] `sns.violinplot()` — distribution shape + box
+- [ ] `sns.boxenplot()` — letter-value plot for large data (Added)
+
+### Understand
+
+- [ ] Median / Q1 / Q3 / IQR / whiskers / outliers from box plot
+- [ ] Distribution shape from violin plot
+- [ ] Box plot vs violin plot: when each is preferred
+
+**Exercises**
+- [ ] Salary comparison by department
+- [ ] Score distribution by study group
+
+---
+
+## Phase 8: Pairwise Analysis
+
+### Learn
+
+- [ ] `sns.pairplot()` — all pairs of variables
+- [ ] `kind=` parameter (scatter, kde, hist, reg)
+- [ ] `diag_kind=` for diagonal plots
+- [ ] `hue=` for color by category
+
+### Understand
+
+- [ ] Quick multi-variable exploration
+- [ ] Identifying correlated features
+- [ ] Distribution on diagonal vs relationship off diagonal
+
+**Exercises**
+- [ ] Iris dataset full pairplot
+- [ ] Feature exploration before ML modeling
+
+---
+
+## Phase 9: Correlation Heatmaps
+
+### Learn
+
+- [ ] `sns.heatmap()` — matrix visualization
+- [ ] `annot=True` — show values in cells
+- [ ] `fmt=` — number format
+- [ ] `cmap=` — colormap
+- [ ] `mask=` — hide upper triangle (Added)
+- [ ] `vmin=`, `vmax=` — fix color scale (Added)
+
+### Understand
+
+- [ ] Correlation matrix interpretation
+- [ ] Positive / Negative / Zero correlation
+- [ ] Diverging colormap for correlation (Added — center at 0)
+
+**Exercises**
+- [ ] Feature correlation study on a dataset
+- [ ] Masked upper triangle heatmap
+
+---
+
+## Phase 10: Regression Visualization
+
+### Learn
+
+- [ ] `sns.regplot()` — scatter + regression line (axes-level)
+- [ ] `sns.lmplot()` — regression with faceting (figure-level)
+- [ ] `sns.residplot()` — regression residuals (Added)
+
+### Understand
+
+- [ ] Linear relationship visualization
+- [ ] Confidence band around regression line
+- [ ] Non-linear regression with `order=` (Added)
+- [ ] Residual analysis for model diagnostics (Added)
+
+**Exercises**
+- [ ] House size vs price regression
+- [ ] Faceted regression by category
+
+---
+
+## Phase 11: Faceting
+
+### Learn
+
+- [ ] `col=` — one column per category
+- [ ] `row=` — one row per category
+- [ ] `hue=` — color dimension
+- [ ] `FacetGrid` — manual faceting
+- [ ] `col_wrap=` — limit columns per row (Added)
+
+### Understand
+
+- [ ] Small multiples principle
+- [ ] Multi-dimensional data exploration in one figure
+
+**Exercises**
+- [ ] Regional sales comparison across quarters
+- [ ] Distribution by multiple categories
+
+---
+
+## Phase 12: Styling & Themes
+
+### Learn
+
+- [ ] `sns.set_theme()` — overall theme
+- [ ] `sns.set_style()` — background style
+- [ ] `sns.set_context()` — scale for output (paper, notebook, talk, poster) (Added)
+- [ ] `sns.set_palette()` — color palette
+
+### Styles
+
+- [ ] whitegrid / darkgrid / white / ticks
+
+### Context Scaling
+
+- [ ] paper → smallest elements
+- [ ] notebook → default
+- [ ] talk → larger for presentations
+- [ ] poster → largest
+
+**Exercises**
+- [ ] Style a chart for a business presentation
+- [ ] Style a chart for a research paper
+
+---
+
+## Phase 13: Color Theory & Palettes
+
+### Learn
+
+- [ ] `sns.color_palette()` — view/create palette
+- [ ] `sns.palplot()` — visualize palette
+
+### Palette Types
+
+- [ ] Sequential — one color gradient (low to high)
+- [ ] Diverging — two-color gradient (negative to positive)
+- [ ] Qualitative — distinct colors for categories
+
+### Understand
+
+- [ ] Match palette type to data type
+- [ ] Colorblind-friendly palettes (Added — colorblind, crest, mako)
+- [ ] Perceptually uniform palettes (Added — viridis, rocket)
+
+**Exercises**
+- [ ] Design an accessible chart with colorblind palette
+
+---
+
+## Phase 14: Figure-Level APIs
+
+### Learn
+
+- [ ] `sns.relplot()` — relationships
+- [ ] `sns.catplot()` — categorical
+- [ ] `sns.displot()` — distributions
+- [ ] `sns.jointplot()` — bivariate + marginal distributions (Added)
+- [ ] `sns.clustermap()` — hierarchical clustering heatmap (Added)
+
+### Understand
+
+- [ ] Figure-level functions return `FacetGrid` or `JointGrid`
+- [ ] Access underlying axes via `.axes`, `.ax_joint` etc.
+- [ ] Automatic figure sizing and layout
+
+---
+
+## Phase 15: Axes-Level APIs
+
+### Learn
+
+- [ ] `sns.scatterplot()` / `sns.lineplot()`
+- [ ] `sns.boxplot()` / `sns.violinplot()`
+- [ ] `sns.barplot()` / `sns.histplot()`
+
+### Understand
+
+- [ ] Returns Matplotlib Axes object
+- [ ] Can be embedded in any Matplotlib figure
+- [ ] Use `ax=` parameter to target specific subplot
+
+**Exercises**
+- [ ] Embed Seaborn plot in Matplotlib subplot grid
+
+---
+
+## Phase 16: Statistical Estimation
+
+### Learn
+
+- [ ] `estimator=` — function applied before plotting (default: mean)
+- [ ] `errorbar=` — CI, SD, or SE (Added — replaces ci= in modern Seaborn)
+- [ ] `n_boot=` — bootstrap samples for CI
+
+### Understand
+
+- [ ] Confidence intervals in Seaborn are bootstrapped by default
+- [ ] How to show SD instead of CI
+- [ ] When to show raw data instead of estimates
+
+**Exercises**
+- [ ] Compare group means with 95% CI
+- [ ] Switch from CI to SD error bars
+
+---
+
+## Phase 17: Working with Real Data
+
+### Learn
+
+- [ ] Handling missing values before plotting
+- [ ] Long format vs wide format (Added — Seaborn expects long)
+- [ ] `pd.melt()` to convert wide → long (Added)
+- [ ] Ordering categories with `order=` (Added)
+
+**Exercises**
+- [ ] Customer analytics EDA
+- [ ] Sales analytics EDA
+
+---
+
+## Phase 18: Seaborn + Pandas
+
+### Learn
+
+- [ ] DataFrame integration with `data=`
+- [ ] GroupBy → plot pipeline
+- [ ] Using Pandas `category` dtype for ordered axes (Added)
+
+**Exercises**
+- [ ] Full EDA workflow: load → clean → explore → visualize
+
+---
+
+## Phase 19: Seaborn + Matplotlib
+
+### Learn
+
+- [ ] Customize Seaborn plots with Matplotlib commands
+- [ ] `plt.gcf()` / `plt.gca()` to get current figure/axes
+- [ ] Adding titles, annotations after Seaborn call
+
+### Understand
+
+- [ ] When to drop to Matplotlib for fine-grained control
+- [ ] Seaborn as a starting point, Matplotlib for finishing
+
+**Exercises**
+- [ ] Add custom annotations to a Seaborn chart
+- [ ] Combine Seaborn and Matplotlib in one figure
+
+---
+
+## Phase 20: Modern Seaborn Objects API (Added)
+
+### Learn
+
+- [ ] `so.Plot()` — new declarative API (Seaborn 0.12+)
+- [ ] `so.Dot()`, `so.Line()`, `so.Bar()` marks
+- [ ] `so.Agg()`, `so.Stack()` transforms
+- [ ] Layering marks on one plot
+
+### Understand
+
+- [ ] Objects API vs legacy API
+- [ ] More composable and consistent
+- [ ] Still maturing — when to use vs legacy
+
+---
+
+## Phase 21: Performance
+
+### Understand
+
+- [ ] Large dataset visualization challenges
+- [ ] Sampling strategies before plotting
+
+### Learn
+
+- [ ] Sample with `df.sample()` before plotting (Added)
+- [ ] Use `sns.kdeplot()` instead of scatter for density (Added)
+- [ ] Hexbin plot for large scatter data (Added)
+
+**Exercises**
+- [ ] Visualize 1M-row dataset effectively
+
+---
+
+## Phase 22: EDA Workflow
+
+### Full EDA Process
+
+1. [ ] Inspect data shape and types (`df.info()`, `df.describe()`)
+2. [ ] Check missing values (`df.isnull().sum()`)
+3. [ ] Analyze distributions (histplot, kdeplot per feature)
+4. [ ] Analyze categorical frequencies (countplot)
+5. [ ] Explore relationships (pairplot, scatterplot)
+6. [ ] Check correlation (heatmap)
+7. [ ] Find outliers (boxplot, violinplot)
+8. [ ] Segment by group (`hue=`, faceting)
+9. [ ] Build insights and document findings
+
+**Exercises**
+- [ ] Full EDA on Titanic dataset
+- [ ] Full EDA on a business dataset
+
+---
+
+## Phase 23: Real Projects
+
+### Beginner
+- [ ] Student Performance Analysis
+- [ ] Expense Analysis
+
+### Intermediate
+- [ ] Sales Analytics Dashboard
+- [ ] HR Analytics Report
+
+### Advanced
+- [ ] Customer Segmentation Analysis
+- [ ] Product Analytics Report
+
+### Expert
+- [ ] End-to-End EDA Framework
+- [ ] Business Intelligence Visualization Suite
+- [ ] Automated EDA Report Generator (Added)
+
+---
+
+## Final Mastery
+
+**Can Explain:** Distribution Analysis, Relationship Analysis, Correlation, Confidence Intervals, Figure-level vs Axes-level APIs, Faceting, Seaborn Architecture, Long vs Wide Format, Statistical Estimation
+
+**Can Build:** EDA Reports, Analytics Dashboards, Statistical Visualizations, Business Reports, Insight Presentations, Automated EDA Pipelines
