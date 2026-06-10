@@ -1,6 +1,6 @@
-# Matplotlib & Seaborn Mastery Checklists
+# Data Visualization Mastery Checklists
 
-> A complete, phase-by-phase learning roadmap covering data visualization with Matplotlib and Seaborn — from fundamentals to publication-quality graphics and production EDA workflows.
+> A complete, phase-by-phase learning roadmap covering data visualization with Matplotlib, Seaborn, Power BI, and Tableau — from fundamentals to publication-quality graphics and enterprise-level dashboards.
 
 ---
 
@@ -8,6 +8,8 @@
 
 1. [Matplotlib](#1-matplotlib)
 2. [Seaborn](#2-seaborn)
+3. [Power BI](#3-power-bi)
+4. [Tableau](#4-tableau)
 
 ---
 
@@ -1023,3 +1025,938 @@
 **Can Explain:** Distribution Analysis, Relationship Analysis, Correlation, Confidence Intervals, Figure-level vs Axes-level APIs, Faceting, Seaborn Architecture, Long vs Wide Format, Statistical Estimation
 
 **Can Build:** EDA Reports, Analytics Dashboards, Statistical Visualizations, Business Reports, Insight Presentations, Automated EDA Pipelines
+
+---
+
+# 3. Power BI
+
+*From Beginner → Analyst → Enterprise-Level Reporting*
+
+---
+
+## Phase 0: Prerequisites
+
+### Data Fundamentals
+
+- [ ] Tables, rows, columns
+- [ ] Relationships between tables
+- [ ] Data types (text, number, date, boolean)
+
+### Excel Basics
+
+- [ ] Formulas and functions
+- [ ] Pivot Tables
+- [ ] Basic charts
+
+### Statistics Basics
+
+- [ ] Mean, median, sum, count
+- [ ] Percentages and ratios
+- [ ] Trend interpretation
+
+---
+
+## Phase 1: Why Power BI Exists
+
+### The Problem
+
+- [ ] Excel struggles with large datasets
+- [ ] Manual reporting takes too long
+- [ ] Insights are buried in spreadsheets
+- [ ] Reports can't update automatically
+
+### First Principles
+
+- [ ] What is Business Intelligence (BI)?
+- [ ] What is a dashboard?
+- [ ] Self-service analytics concept
+
+### Understand
+
+- [ ] Power BI Desktop vs Power BI Service vs Power BI Mobile
+- [ ] Report vs Dashboard vs Dataset distinction
+- [ ] When Power BI beats Excel
+- [ ] When to use Power BI vs Tableau vs Python
+
+---
+
+## Phase 2: Power BI Ecosystem
+
+### Products
+
+- [ ] Power BI Desktop (free, build reports)
+- [ ] Power BI Service (cloud, share reports)
+- [ ] Power BI Mobile (view on phone)
+- [ ] Power BI Report Server (on-premise)
+
+### Related Tools
+
+- [ ] Power Query (data transformation)
+- [ ] Power Pivot (data modeling)
+- [ ] DAX (Data Analysis Expressions)
+
+### Understand
+
+- [ ] Full workflow: Desktop → Publish → Service → Share
+
+---
+
+## Phase 3: Connecting to Data
+
+### File Sources
+
+- [ ] Excel / CSV / JSON / XML
+- [ ] PDF (Added)
+- [ ] Folder (load all files at once)
+
+### Database Sources
+
+- [ ] SQL Server
+- [ ] MySQL / PostgreSQL
+- [ ] Azure SQL Database
+
+### Cloud Sources
+
+- [ ] SharePoint
+- [ ] Google Analytics
+- [ ] Salesforce
+- [ ] Web (scrape from URL)
+
+### Understand
+
+- [ ] Import mode vs DirectQuery vs Live Connection
+- [ ] When each connection mode is appropriate
+- [ ] Refresh frequency and data currency
+
+---
+
+## Phase 4: Power Query (Data Transformation)
+
+### Core Concepts
+
+- [ ] What is Power Query?
+- [ ] M language (behind the scenes)
+- [ ] Applied Steps — every action recorded
+
+### Common Transformations
+
+- [ ] Remove columns / rows
+- [ ] Rename columns
+- [ ] Change data types
+- [ ] Filter rows
+- [ ] Replace values
+- [ ] Handle missing values (null)
+- [ ] Split columns (by delimiter, position)
+- [ ] Merge / Append queries
+
+### Advanced Transformations
+
+- [ ] Pivot / Unpivot columns
+- [ ] Group By (aggregate)
+- [ ] Custom columns with M formula
+- [ ] Conditional columns
+- [ ] Index columns
+
+### Understand
+
+- [ ] Why transform in Power Query vs DAX
+- [ ] Wide vs long format for visuals
+- [ ] Query folding concept
+
+**Exercises**
+- [ ] Clean a messy CSV in Power Query
+- [ ] Merge two tables on a common key
+
+---
+
+## Phase 5: Data Modeling
+
+### Core Concepts
+
+- [ ] Fact Table (measures, transactions)
+- [ ] Dimension Table (descriptions, categories)
+- [ ] Star Schema
+- [ ] Snowflake Schema
+
+### Relationships
+
+- [ ] One-to-Many (most common)
+- [ ] Many-to-Many
+- [ ] One-to-One
+- [ ] Active vs Inactive relationships
+- [ ] Cross-filter direction (single vs both)
+
+### Understand
+
+- [ ] Why data modeling matters for accurate reports
+- [ ] Cardinality concept
+- [ ] Avoid many-to-many where possible
+- [ ] Role-playing dimensions (e.g. date used as order date and ship date)
+
+**Exercises**
+- [ ] Build a star schema from flat files
+- [ ] Set up relationships between tables
+
+---
+
+## Phase 6: DAX Fundamentals
+
+### What is DAX?
+
+- [ ] Data Analysis Expressions
+- [ ] Formula language for calculated columns and measures
+
+### Types of Calculations
+
+- [ ] Calculated Column (row-by-row, stored)
+- [ ] Measure (dynamic, evaluated at query time)
+
+### Basic DAX Functions
+
+**Aggregation**
+- [ ] SUM() / AVERAGE() / COUNT() / COUNTROWS() / MIN() / MAX()
+
+**Logical**
+- [ ] IF() / AND() / OR() / SWITCH()
+
+**Text**
+- [ ] CONCATENATE() / LEFT() / RIGHT() / LEN() / FORMAT()
+
+**Date**
+- [ ] YEAR() / MONTH() / DAY() / TODAY() / DATEDIFF()
+
+**Filter**
+- [ ] CALCULATE() / FILTER() / ALL() / ALLEXCEPT()
+
+### Understand
+
+- [ ] Measures vs calculated columns — when to use each
+- [ ] How CALCULATE() changes filter context
+- [ ] Row context vs filter context (critical concept)
+
+**Exercises**
+- [ ] Total Sales measure
+- [ ] Profit Margin % measure
+- [ ] YTD Sales measure
+
+---
+
+## Phase 7: Advanced DAX
+
+### Time Intelligence
+
+- [ ] TOTALYTD() / TOTALQTD() / TOTALMTD()
+- [ ] DATEADD() / SAMEPERIODLASTYEAR()
+- [ ] PARALLELPERIOD()
+- [ ] Running totals
+
+### Filter Context Manipulation
+
+- [ ] CALCULATE() with multiple filters
+- [ ] ALL() — remove all filters
+- [ ] ALLEXCEPT() — remove all filters except specified
+- [ ] KEEPFILTERS()
+- [ ] REMOVEFILTERS()
+
+### Iterator Functions
+
+- [ ] SUMX() / AVERAGEX() / COUNTX()
+- [ ] RANKX()
+- [ ] MAXX() / MINX()
+
+### Relationship Functions
+
+- [ ] RELATED() — lookup value from related table
+- [ ] RELATEDTABLE()
+- [ ] USERELATIONSHIP() — activate inactive relationship
+
+### Understand
+
+- [ ] CALCULATE() is the most important DAX function
+- [ ] When iterators are necessary
+- [ ] Context transition concept
+
+**Exercises**
+- [ ] Sales vs prior year comparison
+- [ ] Running total measure
+- [ ] Dynamic ranking measure
+
+---
+
+## Phase 8: Visualizations
+
+### Basic Visuals
+
+- [ ] Bar / Column Chart
+- [ ] Line Chart
+- [ ] Pie / Donut Chart
+- [ ] Card (single KPI number)
+- [ ] Table / Matrix
+- [ ] Scatter Chart
+
+### Intermediate Visuals
+
+- [ ] Clustered vs Stacked Bar
+- [ ] Combo Chart (line + bar)
+- [ ] Treemap
+- [ ] Funnel Chart
+- [ ] Gauge Chart
+- [ ] Map (filled, bubble)
+
+### Advanced Visuals
+
+- [ ] Waterfall Chart
+- [ ] Ribbon Chart
+- [ ] Decomposition Tree
+- [ ] Key Influencers
+- [ ] Smart Narrative
+- [ ] Custom Visuals from AppSource
+
+### Understand
+
+- [ ] Choosing the right visual for the question
+- [ ] When NOT to use pie charts
+- [ ] KPI visual vs Card visual
+
+---
+
+## Phase 9: Filters & Slicers
+
+### Filter Types
+
+- [ ] Visual-level filter
+- [ ] Page-level filter
+- [ ] Report-level filter
+- [ ] Drillthrough filter
+
+### Slicers
+
+- [ ] Dropdown / List / Between / Relative Date
+- [ ] Sync slicers across pages
+- [ ] Slicer panel (toggle visibility)
+
+### Understand
+
+- [ ] Filter pane vs slicer (same result, different UX)
+- [ ] How filters interact with DAX measures
+- [ ] Edit interactions between visuals
+
+**Exercises**
+- [ ] Build a report with synced date slicer
+
+---
+
+## Phase 10: Report Design
+
+### Layout Principles
+
+- [ ] Grid alignment
+- [ ] Consistent fonts and colors
+- [ ] Visual hierarchy (most important = largest)
+- [ ] White space usage
+
+### Branding
+
+- [ ] Custom themes (JSON file)
+- [ ] Company colors and fonts
+- [ ] Logo placement
+
+### Navigation
+
+- [ ] Bookmarks (save view states)
+- [ ] Buttons for navigation
+- [ ] Tooltip pages (hover details)
+- [ ] Drillthrough pages
+
+### Best Practices
+
+- [ ] No more than 5–7 visuals per page
+- [ ] Clear page titles and labels
+- [ ] Consistent date filters across pages
+- [ ] Mobile layout view
+
+**Exercises**
+- [ ] Build a multi-page sales report
+
+---
+
+## Phase 11: Row-Level Security (RLS)
+
+### Learn
+
+- [ ] What is RLS?
+- [ ] Static RLS — fixed rules per role
+- [ ] Dynamic RLS — uses USERNAME() or USERPRINCIPALNAME()
+
+### Understand
+
+- [ ] How to define roles in Desktop
+- [ ] How to assign users to roles in Service
+- [ ] Testing RLS before publishing
+
+**Exercises**
+- [ ] Region-based RLS for sales report
+
+---
+
+## Phase 12: Power BI Service
+
+### Learn
+
+- [ ] Publishing from Desktop to Service
+- [ ] Workspaces (My Workspace vs shared)
+- [ ] Dashboards (pin visuals from reports)
+- [ ] Scheduled Refresh setup
+- [ ] Data Gateway (for on-premise sources)
+
+### Sharing & Collaboration
+
+- [ ] Share report link
+- [ ] Publish to web (public)
+- [ ] Power BI Apps (package reports for distribution)
+- [ ] Workspace roles (Admin, Member, Contributor, Viewer)
+
+---
+
+## Phase 13: Performance Optimization
+
+### Data Model
+
+- [ ] Remove unused columns
+- [ ] Use integer keys instead of text keys
+- [ ] Avoid bidirectional relationships where possible
+- [ ] Use summarized tables for large datasets
+
+### DAX
+
+- [ ] Prefer measures over calculated columns
+- [ ] Avoid iterating over large tables unnecessarily
+- [ ] Use variables (`VAR`) to avoid recalculation
+
+### Report
+
+- [ ] Reduce number of visuals per page
+- [ ] Use import mode over DirectQuery for speed
+- [ ] Aggregation tables for large datasets
+
+**Exercises**
+- [ ] Performance Analyzer tool usage
+
+---
+
+## Phase 14: Advanced Features
+
+### What-If Parameters
+
+- [ ] Dynamic scenario analysis
+- [ ] Slider-based sensitivity analysis
+
+### Calculation Groups
+
+- [ ] Reusable time intelligence logic
+- [ ] Avoid DAX duplication
+
+### Field Parameters
+
+- [ ] User-switchable axes/measures in visuals
+
+### Deployment Pipelines
+
+- [ ] Development → Test → Production workflow
+
+### Paginated Reports
+
+- [ ] Pixel-perfect printing
+- [ ] SSRS-style reports in Power BI
+
+---
+
+## Phase 15: Real Projects
+
+### Beginner
+- [ ] Personal Expense Dashboard
+- [ ] Student Results Report
+
+### Intermediate
+- [ ] Sales Performance Dashboard
+- [ ] HR Analytics Report
+
+### Advanced
+- [ ] Financial P&L Report
+- [ ] Supply Chain Analytics Dashboard
+
+### Expert
+- [ ] Enterprise Multi-Department BI Solution
+- [ ] Real-Time Streaming Dashboard
+- [ ] Embedded Power BI in Web App
+
+---
+
+## Final Mastery
+
+**Can Explain:** Power Query, Data Modeling, Star Schema, DAX measures vs calculated columns, Filter context vs row context, CALCULATE(), Time Intelligence, RLS, DirectQuery vs Import, Report vs Dashboard
+
+**Can Build:** End-to-end BI reports, Star schema data models, Complex DAX measures, Multi-page dashboards, Row-level security, Scheduled refresh pipelines
+
+---
+
+# 4. Tableau
+
+*From Beginner → Analyst → Advanced Visual Analytics*
+
+---
+
+## Phase 0: Prerequisites
+
+### Data Fundamentals
+
+- [ ] Tables, rows, columns
+- [ ] Data types (string, number, date, boolean)
+- [ ] Aggregations (sum, avg, count)
+
+### Statistics Basics
+
+- [ ] Mean, median, percentages
+- [ ] Distributions and trends
+
+### Visualization Basics
+
+- [ ] Chart types and when to use them
+- [ ] What makes a good dashboard
+
+---
+
+## Phase 1: Why Tableau Exists
+
+### The Problem
+
+- [ ] Business users need fast visual insights without coding
+- [ ] Excel charts are static and limited
+- [ ] Traditional BI tools require SQL/IT involvement
+
+### First Principles
+
+- [ ] Visual analytics concept
+- [ ] Drag-and-drop data exploration
+- [ ] Show Me — intelligent chart suggestions
+
+### Understand
+
+- [ ] Tableau Desktop vs Tableau Public vs Tableau Server vs Tableau Cloud
+- [ ] Tableau vs Power BI — key differences
+- [ ] When Tableau's visualization flexibility wins
+- [ ] Tableau licensing model
+
+---
+
+## Phase 2: Tableau Ecosystem
+
+### Products
+
+- [ ] Tableau Desktop (full authoring, paid)
+- [ ] Tableau Public (free, public publishing)
+- [ ] Tableau Prep (data preparation)
+- [ ] Tableau Server (on-premise sharing)
+- [ ] Tableau Cloud (cloud sharing)
+
+### Understand
+
+- [ ] Tableau Public is free and great for learning
+- [ ] Tableau Prep = ETL tool equivalent to Power Query
+
+---
+
+## Phase 3: Connecting to Data
+
+### File Sources
+
+- [ ] Excel / CSV / JSON / PDF / Spatial files
+
+### Database Sources
+
+- [ ] SQL Server / MySQL / PostgreSQL
+- [ ] BigQuery / Redshift / Snowflake
+
+### Cloud Sources
+
+- [ ] Google Sheets
+- [ ] Salesforce
+- [ ] Web Data Connector
+
+### Understand
+
+- [ ] Live connection vs Extract
+- [ ] Extracts (.hyper files) for performance
+- [ ] When to use live vs extract
+
+---
+
+## Phase 4: Tableau Interface
+
+### Key Areas
+
+- [ ] Data pane (dimensions and measures)
+- [ ] Shelves (Rows, Columns, Color, Size, Label, Detail, Tooltip)
+- [ ] Canvas / View
+- [ ] Show Me panel
+- [ ] Marks card
+
+### Understand
+
+- [ ] Dimensions (categorical, blue pills)
+- [ ] Measures (numerical, green pills)
+- [ ] Discrete vs Continuous fields
+- [ ] Blue pill vs green pill behavior difference
+
+**Exercises**
+- [ ] Build first bar chart by drag and drop
+
+---
+
+## Phase 5: Building Basic Charts
+
+### Learn
+
+- [ ] Bar Chart
+- [ ] Line Chart
+- [ ] Scatter Plot
+- [ ] Pie / Donut Chart
+- [ ] Map (filled, symbol)
+- [ ] Treemap
+- [ ] Bubble Chart
+- [ ] Histogram (bin creation)
+- [ ] Box and Whisker Plot
+
+### Show Me Panel
+
+- [ ] When to use Show Me
+- [ ] Understanding Show Me's chart suggestions
+
+**Exercises**
+- [ ] Sales by region bar chart
+- [ ] Monthly revenue trend line chart
+- [ ] Profit vs Sales scatter plot
+
+---
+
+## Phase 6: Sorting & Filtering
+
+### Sorting
+
+- [ ] Manual sort
+- [ ] Sort by field (ascending/descending)
+- [ ] Nested sort
+
+### Filters
+
+- [ ] Dimension filter
+- [ ] Measure filter
+- [ ] Date filter (relative, range, discrete)
+- [ ] Context filter
+- [ ] Top N filter
+- [ ] Condition filter
+
+### Filter Order of Operations
+
+- [ ] Extract → Data Source → Context → Dimension → Measure → Table Calc
+
+### Understand
+
+- [ ] Why context filters exist
+- [ ] Filter order affects results
+
+**Exercises**
+- [ ] Top 10 products by sales
+- [ ] Sales for last 12 months
+
+---
+
+## Phase 7: Calculated Fields
+
+### Types
+
+- [ ] Basic calculated field
+- [ ] Aggregate calculation
+- [ ] Table calculation
+- [ ] Level of Detail (LOD) expression
+
+### Basic Calculations
+
+- [ ] Arithmetic: `[Sales] - [Cost]`
+- [ ] String: `LEFT([Name], 3)`
+- [ ] Date: `DATEDIFF('month', [Order Date], TODAY())`
+- [ ] Logical: `IF [Sales] > 1000 THEN "High" ELSE "Low" END`
+- [ ] NULL handling: `ISNULL()`, `ZN()`, `IFNULL()`
+
+### Understand
+
+- [ ] When to calculate vs transform in Prep/source
+
+**Exercises**
+- [ ] Profit Margin % calculated field
+- [ ] Customer age from birthdate
+
+---
+
+## Phase 8: Table Calculations
+
+### Learn
+
+- [ ] Running Total
+- [ ] Percent of Total
+- [ ] Rank
+- [ ] Moving Average
+- [ ] Difference / Percent Difference from previous
+
+### Understand
+
+- [ ] Table calculations run after aggregation
+- [ ] Compute using: Table (across/down), Pane, Cell, Specific dimension
+- [ ] Direction matters: across vs down
+
+**Exercises**
+- [ ] Running total sales by month
+- [ ] Percent of total by category
+
+---
+
+## Phase 9: Level of Detail (LOD) Expressions
+
+### Types
+
+- [ ] FIXED — compute at specified level, ignore view filters
+- [ ] INCLUDE — add granularity beyond view
+- [ ] EXCLUDE — remove granularity from view
+
+### Understand
+
+- [ ] LOD vs Table Calculation vs Aggregate
+- [ ] When each is appropriate
+- [ ] LOD interacts with context filters, not dimension filters
+
+**Exercises**
+- [ ] Customer-level average vs order-level average
+- [ ] Sales per customer using FIXED LOD
+
+---
+
+## Phase 10: Parameters
+
+### Learn
+
+- [ ] Create parameters (integer, float, string, date, list)
+- [ ] Reference parameter in calculated field
+- [ ] Show parameter control in view
+
+### Use Cases
+
+- [ ] Dynamic top N filter
+- [ ] What-if analysis
+- [ ] User-selectable metric (Sales vs Profit toggle)
+- [ ] Dynamic reference lines
+
+**Exercises**
+- [ ] Top N parameter-driven bar chart
+- [ ] Switch between metrics dynamically
+
+---
+
+## Phase 11: Maps & Geospatial
+
+### Learn
+
+- [ ] Symbol Map (point locations)
+- [ ] Filled Map (shaded regions)
+- [ ] Density Map
+- [ ] Custom territory creation
+- [ ] Dual-axis map
+
+### Understand
+
+- [ ] How Tableau geocodes data
+- [ ] Editing unrecognized locations
+- [ ] Custom geocoding with lat/long
+
+**Exercises**
+- [ ] Sales by country filled map
+- [ ] Store locations symbol map
+
+---
+
+## Phase 12: Dashboard Design
+
+### Layout
+
+- [ ] Tiled vs floating objects
+- [ ] Containers (horizontal/vertical)
+- [ ] Consistent sizing and padding
+- [ ] Device designer (desktop/tablet/phone)
+
+### Interactivity
+
+- [ ] Dashboard actions (filter, highlight, URL, go to sheet)
+- [ ] Filter actions (click one chart to filter others)
+- [ ] Highlight actions
+- [ ] Sheet swapping with parameter + calculated field
+
+### Navigation
+
+- [ ] Button actions for navigation
+- [ ] Tooltip design
+- [ ] Custom shapes and images
+
+### Design Principles
+
+- [ ] One clear message per dashboard
+- [ ] Progressive disclosure
+- [ ] Consistent color encoding
+- [ ] Minimal but sufficient labels
+
+**Exercises**
+- [ ] 3-chart interactive sales dashboard
+- [ ] Add filter action between charts
+
+---
+
+## Phase 13: Stories
+
+### Learn
+
+- [ ] Story points concept
+- [ ] Adding sheets as story points
+- [ ] Annotations and narration
+- [ ] Presenting with Tableau Stories
+
+### Understand
+
+- [ ] Story vs Dashboard vs Sheet
+- [ ] When to use stories (presentations, guided analysis)
+
+---
+
+## Phase 14: Analytics Pane
+
+### Learn
+
+- [ ] Reference Lines (constant, average, median)
+- [ ] Reference Bands
+- [ ] Trend Lines (linear, polynomial, exponential, logarithmic)
+- [ ] Forecasting (built-in exponential smoothing)
+- [ ] Cluster analysis (k-means built-in)
+- [ ] Box Plot statistics
+
+### Understand
+
+- [ ] Tableau forecasting limitations
+- [ ] When to trust built-in analytics vs export to Python/R
+
+---
+
+## Phase 15: Tableau Prep
+
+### Learn
+
+- [ ] Connect to data sources
+- [ ] Profile pane (data quality view)
+- [ ] Clean steps (rename, filter, split, replace)
+- [ ] Pivot (wide to long)
+- [ ] Aggregate step
+- [ ] Join / Union
+- [ ] Output to extract or database
+
+### Understand
+
+- [ ] Tableau Prep vs Power Query
+- [ ] When to use Prep vs clean in Desktop
+
+---
+
+## Phase 16: Performance Optimization
+
+### Data
+
+- [ ] Use extracts over live connections
+- [ ] Aggregate to appropriate granularity
+- [ ] Filter early in Prep/data source
+
+### Workbook
+
+- [ ] Reduce marks in view
+- [ ] Avoid unnecessary detail marks
+- [ ] Use context filters correctly
+- [ ] Limit LOD expressions
+
+### Tools
+
+- [ ] Performance Recording (built-in profiler)
+- [ ] VizQL query inspection
+
+---
+
+## Phase 17: Tableau Server / Cloud
+
+### Learn
+
+- [ ] Publishing workbooks
+- [ ] Permissions and content levels
+- [ ] Data source publishing (centralized)
+- [ ] Scheduled extract refreshes
+- [ ] Subscriptions (email reports)
+- [ ] Embedding Tableau in web apps
+
+### Understand
+
+- [ ] Site → Project → Workbook → View hierarchy
+- [ ] Row-level security options in Tableau
+
+---
+
+## Phase 18: Advanced Topics
+
+### Extensions
+
+- [ ] Dashboard Extensions API
+- [ ] Integration with Python/R (TabPy, RServe)
+
+### Tableau with Python (TabPy)
+
+- [ ] Call Python functions from calculated fields
+- [ ] Use ML model predictions in Tableau
+
+### Tableau Bridge
+
+- [ ] Live connection to on-premise data from Tableau Cloud
+
+### Embedding
+
+- [ ] Tableau JavaScript API
+- [ ] Embedded analytics in web apps
+
+---
+
+## Phase 19: Real Projects
+
+### Beginner
+- [ ] Superstore Sales Dashboard (built-in dataset)
+- [ ] Personal Finance Tracker
+
+### Intermediate
+- [ ] Sales Performance Dashboard
+- [ ] Customer Cohort Analysis
+
+### Advanced
+- [ ] Executive KPI Dashboard
+- [ ] Supply Chain Analytics
+
+### Expert
+- [ ] Real-Time Operational Dashboard
+- [ ] Embedded Analytics in Web Application
+- [ ] Tableau Public Portfolio (5+ published dashboards)
+
+---
+
+## Final Mastery
+
+**Can Explain:** Dimensions vs Measures, Discrete vs Continuous, Live vs Extract, Tableau calculation types (basic, table calc, LOD), Parameters, Dashboard actions, Filter order of operations, FIXED vs INCLUDE vs EXCLUDE LOD
+
+**Can Build:** Multi-chart interactive dashboards, LOD-powered analytics, Parameter-driven views, Geographic analyses, Storytelling presentations, Published Tableau Public portfolio
