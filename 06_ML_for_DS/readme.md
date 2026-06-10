@@ -4074,3 +4074,3812 @@ Select Point → Check Neighborhood → Core Point? → Yes: Expand Cluster / No
 **Can Explain:** Why DBSCAN Exists, Density-Based Clustering, Cluster Expansion, Noise Detection, Arbitrary Cluster Shapes, Parameter Tuning
 
 **Can Apply:** Choose ε and MinPts, Detect Outliers, Cluster Non-Linear Data, Evaluate Clustering Quality, Build Real-World Clustering Pipelines
+
+
+# 🏗 Feature Engineering Mastery Checklist
+
+> A complete roadmap covering Feature Engineering from beginner to advanced, including preprocessing, transformations, feature creation, feature selection, dimensionality reduction, PCA, SVD, Autoencoders, production pipelines, and real-world applications.
+
+---
+
+# Table of Contents
+
+1. Phase 0: Why Feature Engineering Exists
+2. Phase 1: Feature Engineering Mindset
+3. Phase 2: Missing Value Engineering
+4. Phase 3: Categorical Encoding
+5. Phase 4: Numerical Feature Transformations
+6. Phase 5: Scaling & Normalization
+7. Phase 6: Feature Construction
+8. Phase 7: Date & Time Features
+9. Phase 8: Text Feature Engineering
+10. Phase 9: Aggregation Features
+11. Phase 10: Interaction Features
+12. Phase 11: Polynomial Features
+13. Phase 12: Feature Selection
+14. Phase 13: Dimensionality Reduction
+15. Phase 14: PCA
+16. Phase 15: LDA
+17. Phase 16: SVD
+18. Phase 17: Autoencoders
+19. Phase 18: Time Series Features
+20. Phase 19: Feature Engineering for Trees
+21. Phase 20: Feature Engineering for Linear Models
+22. Phase 21: Feature Engineering for Deep Learning
+23. Phase 22: Feature Stores
+24. Phase 23: Production Feature Engineering
+25. Phase 24: Real Projects
+26. Phase 25: Expert Mastery
+
+---
+
+# Phase 0: Why Feature Engineering Exists
+
+## The Problem
+
+Raw data is rarely suitable for machine learning.
+
+Example:
+
+```text
+Date of Birth = 1998-05-15
+```
+
+Model cannot directly understand age.
+
+Transform:
+
+```text
+Date of Birth
+        ↓
+Age
+        ↓
+Model Input
+```
+
+---
+
+## First Principles
+
+A feature is:
+
+```text
+Raw Data
+      ↓
+Transformation
+      ↓
+Feature
+```
+
+---
+
+## Understand
+
+```text
+Bad Features
+      ↓
+Bad Predictions
+
+Good Features
+      ↓
+Good Predictions
+```
+
+---
+
+## Exercises
+
+* [ ] Convert DOB to Age
+* [ ] Create Profit from Revenue and Cost
+* [ ] Create Customer Lifetime Value
+
+---
+
+## Mastery Checklist
+
+* [ ] Explain why feature engineering matters
+* [ ] Explain difference between raw data and features
+* [ ] Explain signal vs noise
+
+---
+
+# Phase 1: Feature Engineering Mindset
+
+## Core Concepts
+
+### Domain Knowledge
+
+Business understanding often creates the most useful features.
+
+Example:
+
+```text
+Orders
+```
+
+Raw:
+
+```text
+Total Orders
+```
+
+Better:
+
+```text
+Orders Per Month
+```
+
+---
+
+### Signal vs Noise
+
+Ask:
+
+```text
+Does this feature contain predictive information?
+```
+
+---
+
+### Data Leakage
+
+Never use future information.
+
+Bad Example:
+
+```text
+Loan Closed Date
+```
+
+When predicting:
+
+```text
+Loan Default
+```
+
+---
+
+## Exercises
+
+* [ ] Identify useful features
+* [ ] Identify useless features
+* [ ] Identify leakage examples
+
+---
+
+## Mastery Checklist
+
+* [ ] Explain feature leakage
+* [ ] Explain predictive signal
+* [ ] Explain domain-driven feature creation
+
+---
+
+# Phase 2: Missing Value Engineering
+
+## Mean Imputation
+
+```python
+df.fillna(df.mean())
+```
+
+---
+
+## Median Imputation
+
+Useful for skewed data.
+
+---
+
+## Mode Imputation
+
+Useful for categorical data.
+
+---
+
+## Constant Imputation
+
+Examples:
+
+```text
+Unknown
+0
+-999
+```
+
+---
+
+## Advanced Methods
+
+### KNN Imputation
+
+### Iterative Imputation
+
+### Model-Based Imputation
+
+---
+
+## Exercises
+
+* [ ] Titanic Dataset
+* [ ] House Prices Dataset
+
+---
+
+## Mastery Checklist
+
+* [ ] Handle numerical missing values
+* [ ] Handle categorical missing values
+* [ ] Explain when mean imputation fails
+
+---
+
+# Phase 3: Categorical Encoding
+
+## One Hot Encoding
+
+Input:
+
+```text
+Red
+Blue
+Green
+```
+
+Output:
+
+```text
+Red   Blue   Green
+1      0       0
+0      1       0
+0      0       1
+```
+
+---
+
+## Label Encoding
+
+```text
+Low     → 0
+Medium  → 1
+High    → 2
+```
+
+---
+
+## Ordinal Encoding
+
+Used when categories have order.
+
+---
+
+## Frequency Encoding
+
+```text
+Category
+      ↓
+Frequency
+```
+
+---
+
+## Target Encoding
+
+```text
+Category
+      ↓
+Target Mean
+```
+
+---
+
+## Hash Encoding
+
+Useful for high-cardinality features.
+
+---
+
+## Exercises
+
+* [ ] One-hot encode a dataset
+* [ ] Apply target encoding
+* [ ] Compare encoders
+
+---
+
+## Expert Questions
+
+* Why can label encoding harm linear models?
+* Why can target encoding leak information?
+
+---
+
+# Phase 4: Numerical Feature Transformations
+
+## Log Transformation
+
+```python
+np.log1p(x)
+```
+
+Used for:
+
+* Revenue
+* Income
+* Sales
+
+---
+
+## Square Root Transformation
+
+```python
+np.sqrt(x)
+```
+
+---
+
+## Cube Root Transformation
+
+---
+
+## Reciprocal Transformation
+
+---
+
+## Box-Cox Transformation
+
+---
+
+## Yeo-Johnson Transformation
+
+---
+
+## Why Transform?
+
+Reduce:
+
+* Skewness
+* Variance
+* Outlier influence
+
+---
+
+## Mastery Checklist
+
+* [ ] Detect skewness
+* [ ] Apply log transform
+* [ ] Compare transformations
+
+---
+
+# Phase 5: Scaling & Normalization
+
+## Standardization
+
+```python
+(x - mean) / std
+```
+
+Used for:
+
+* Linear Regression
+* Logistic Regression
+* PCA
+* SVM
+* Neural Networks
+
+---
+
+## Min-Max Scaling
+
+```python
+(x-min)/(max-min)
+```
+
+Range:
+
+```text
+0 → 1
+```
+
+---
+
+## Robust Scaling
+
+Uses:
+
+```text
+Median
+IQR
+```
+
+---
+
+## Exercises
+
+* [ ] Compare all scalers
+* [ ] Visualize transformed distributions
+
+---
+
+## Expert Questions
+
+* Why don't decision trees require scaling?
+* Why does PCA require scaling?
+
+---
+
+# Phase 6: Feature Construction
+
+## Derived Features
+
+Example:
+
+```text
+Revenue
+Cost
+```
+
+Create:
+
+```text
+Profit
+```
+
+---
+
+## Ratios
+
+```text
+Debt / Income
+```
+
+---
+
+## Percentages
+
+```text
+Profit Margin
+```
+
+---
+
+## KPIs
+
+```text
+Customer Lifetime Value
+```
+
+---
+
+## Exercises
+
+* [ ] Create business KPIs
+* [ ] Build ratio features
+* [ ] Build profitability features
+
+---
+
+# Phase 7: Date & Time Features
+
+## Extract Components
+
+```python
+year
+month
+day
+weekday
+hour
+quarter
+weekofyear
+```
+
+---
+
+## Cyclical Encoding
+
+```python
+sin()
+cos()
+```
+
+Used for:
+
+```text
+Month
+Hour
+Day Of Week
+```
+
+---
+
+## Lag Features
+
+```text
+Yesterday's Sales
+```
+
+---
+
+## Rolling Features
+
+```text
+7-Day Average
+30-Day Average
+```
+
+---
+
+## Mastery Checklist
+
+* [ ] Build lag features
+* [ ] Build rolling features
+* [ ] Build cyclical features
+
+---
+
+# Phase 8: Text Feature Engineering
+
+## Bag of Words
+
+---
+
+## Count Vectorizer
+
+---
+
+## TF-IDF
+
+---
+
+## N-Grams
+
+### Unigrams
+
+### Bigrams
+
+### Trigrams
+
+---
+
+## Word Embeddings
+
+### Word2Vec
+
+### GloVe
+
+### FastText
+
+### BERT Embeddings
+
+---
+
+## Exercises
+
+* [ ] Build sentiment features
+* [ ] Compare TF-IDF vs embeddings
+
+---
+
+# Phase 9: Aggregation Features
+
+## Group-Based Features
+
+Example:
+
+Customer Transactions
+
+Generate:
+
+```text
+Total Orders
+Average Order Value
+Maximum Order Value
+Minimum Order Value
+```
+
+---
+
+## Exercises
+
+* [ ] Customer aggregation features
+* [ ] Product aggregation features
+
+---
+
+# Phase 10: Interaction Features
+
+## Multiplication Features
+
+```text
+Age × Income
+```
+
+---
+
+## Ratios
+
+```text
+Income / Family Size
+```
+
+---
+
+## Cross Features
+
+```text
+City × Product
+```
+
+---
+
+## Mastery Checklist
+
+* [ ] Create interaction terms
+* [ ] Evaluate interaction usefulness
+
+---
+
+# Phase 11: Polynomial Features
+
+## Degree 2
+
+```text
+x
+x²
+xy
+y²
+```
+
+---
+
+## Degree 3
+
+Higher-order interactions.
+
+---
+
+## Why?
+
+Capture non-linear relationships.
+
+---
+
+## Exercises
+
+* [ ] Polynomial regression
+* [ ] Compare degree levels
+
+---
+
+# Phase 12: Feature Selection
+
+## Filter Methods
+
+### Variance Threshold
+
+### Correlation Filter
+
+### Chi-Square
+
+### Mutual Information
+
+---
+
+## Wrapper Methods
+
+### Forward Selection
+
+### Backward Elimination
+
+### Recursive Feature Elimination
+
+---
+
+## Embedded Methods
+
+### Lasso
+
+### Random Forest Importance
+
+### XGBoost Importance
+
+---
+
+## Mastery Checklist
+
+* [ ] Select useful features
+* [ ] Remove redundant features
+
+---
+
+# Phase 13: Dimensionality Reduction
+
+## Why?
+
+```text
+1000 Features
+      ↓
+50 Features
+```
+
+Benefits:
+
+* Faster training
+* Less noise
+* Better visualization
+
+---
+
+## Techniques
+
+* PCA
+* LDA
+* SVD
+* Autoencoders
+
+---
+
+# Phase 14: PCA
+
+## Topics
+
+* Covariance Matrix
+* Eigenvalues
+* Eigenvectors
+* Principal Components
+* Explained Variance
+
+---
+
+## Understand
+
+```text
+Maximum Variance Projection
+```
+
+---
+
+## Exercises
+
+* [ ] Iris Dataset
+* [ ] MNIST Dataset
+
+---
+
+## Expert Questions
+
+* Why does PCA maximize variance?
+* Why can PCA hurt tree models?
+
+---
+
+# Phase 15: LDA
+
+## Linear Discriminant Analysis
+
+Goal:
+
+```text
+Maximum Class Separation
+```
+
+---
+
+## Difference
+
+```text
+PCA → Unsupervised
+
+LDA → Supervised
+```
+
+---
+
+## Exercises
+
+* [ ] Multi-class classification
+* [ ] PCA vs LDA comparison
+
+---
+
+# Phase 16: SVD
+
+## Singular Value Decomposition
+
+Applications:
+
+* Recommender Systems
+* NLP
+* Matrix Factorization
+
+---
+
+## Concepts
+
+```text
+U
+Σ
+Vᵀ
+```
+
+---
+
+## Exercises
+
+* [ ] Matrix decomposition
+* [ ] Recommendation systems
+
+---
+
+# Phase 17: Autoencoders
+
+## Encoder
+
+```text
+Input
+ ↓
+Latent Space
+```
+
+---
+
+## Decoder
+
+```text
+Latent Space
+ ↓
+Output
+```
+
+---
+
+## Applications
+
+* Compression
+* Anomaly Detection
+* Representation Learning
+
+---
+
+# Phase 18: Time Series Features
+
+## Topics
+
+* Lag Features
+* Rolling Features
+* Expanding Windows
+* Trend Features
+* Seasonal Features
+* Holiday Features
+
+---
+
+## Exercises
+
+* [ ] Forecasting features
+* [ ] Sales prediction features
+
+---
+
+# Phase 19: Feature Engineering for Trees
+
+## Trees Prefer
+
+* Raw Features
+* Minimal Scaling
+
+---
+
+## Important Topics
+
+* Missing Value Handling
+* Feature Importance
+* Categorical Handling
+
+---
+
+# Phase 20: Feature Engineering for Linear Models
+
+## Requirements
+
+* Scaling
+* Encoding
+* Multicollinearity Handling
+
+---
+
+## Mastery Checklist
+
+* [ ] Prepare features for linear models
+
+---
+
+# Phase 21: Feature Engineering for Deep Learning
+
+## Topics
+
+* Embeddings
+* Learned Representations
+* Feature Crosses
+* Sequence Features
+
+---
+
+# Phase 22: Feature Stores
+
+## Tools
+
+* Feast
+* Tecton
+* Hopsworks
+
+---
+
+## Understand
+
+```text
+Training Features
+=
+Serving Features
+```
+
+---
+
+# Phase 23: Production Feature Engineering
+
+## Topics
+
+* sklearn Pipeline
+* ColumnTransformer
+* Feature Versioning
+* Monitoring
+* Drift Detection
+
+---
+
+## Exercises
+
+* [ ] Build end-to-end feature pipeline
+
+---
+
+# Phase 24: Real Projects
+
+## Titanic
+
+* Missing Values
+* Encoding
+* Feature Creation
+
+---
+
+## House Prices
+
+* Feature Selection
+* PCA
+* Transformations
+
+---
+
+## Customer Churn
+
+* Aggregations
+* Ratios
+* Target Encoding
+
+---
+
+## Credit Risk
+
+* WOE
+* IV
+* Binning
+
+---
+
+# Phase 25: Expert Mastery
+
+## Can Explain
+
+* Why feature engineering matters
+* PCA mathematically
+* LDA mathematically
+* SVD mathematically
+* Autoencoders conceptually
+
+---
+
+## Can Build
+
+* Production feature pipelines
+* Automated feature systems
+* Feature stores
+
+---
+
+## Veteran Questions
+
+* Why does PCA maximize variance?
+* When should PCA be avoided?
+* Why can target encoding leak?
+* Why can one-hot encoding fail at scale?
+* Can feature engineering outperform model engineering?
+
+---
+
+## Final Mastery Checklist
+
+### Beginner
+
+* [ ] Handle missing values
+* [ ] Encode categories
+* [ ] Scale features
+
+### Intermediate
+
+* [ ] Create business features
+* [ ] Build interaction features
+* [ ] Perform feature selection
+
+### Advanced
+
+* [ ] Apply PCA
+* [ ] Apply LDA
+* [ ] Apply SVD
+* [ ] Build feature pipelines
+
+### Expert
+
+* [ ] Design production feature stores
+* [ ] Build automated feature engineering systems
+* [ ] Explain feature engineering from first principles
+* [ ] Optimize features for large-scale ML systems
+
+```
+```
+
+# 💾 ML Model Serialization & Deployment Artifacts Mastery Checklist
+
+> A complete roadmap covering model saving, loading, serialization, packaging, portability, deployment artifacts, and production inference workflows.
+
+---
+
+# Table of Contents
+
+1. Phase 0: Why Model Serialization Exists
+2. Phase 1: Understanding Trained Models
+3. Phase 2: Serialization Fundamentals
+4. Phase 3: Pickle
+5. Phase 4: Joblib
+6. Phase 5: Cloudpickle
+7. Phase 6: Saving Entire Pipelines
+8. Phase 7: Model Versioning
+9. Phase 8: ONNX
+10. Phase 9: TensorFlow SavedModel
+11. Phase 10: Keras Model Formats
+12. Phase 11: PyTorch Serialization
+13. Phase 12: TorchScript
+14. Phase 13: Model Packaging
+15. Phase 14: Inference Pipelines
+16. Phase 15: Deployment Artifacts
+17. Phase 16: MLflow
+18. Phase 17: BentoML
+19. Phase 18: Model Registries
+20. Phase 19: Production Considerations
+21. Phase 20: Real Projects
+22. Phase 21: Expert Mastery
+
+---
+
+# Phase 0: Why Model Serialization Exists
+
+## The Problem
+
+Training takes time.
+
+```text
+Raw Data
+      ↓
+Training
+      ↓
+Model
+      ↓
+Prediction
+```
+
+Without serialization:
+
+```text
+Restart Program
+      ↓
+Retrain Again
+      ↓
+Waste Time
+```
+
+---
+
+## Solution
+
+Save trained model.
+
+```text
+Train Once
+     ↓
+Save
+     ↓
+Load
+     ↓
+Predict
+```
+
+---
+
+## Understand
+
+Serialization means:
+
+```text
+Python Object
+      ↓
+Byte Stream
+      ↓
+File
+```
+
+Deserialization means:
+
+```text
+File
+ ↓
+Bytes
+ ↓
+Python Object
+```
+
+---
+
+## Exercises
+
+* [ ] Train Linear Regression
+* [ ] Save Model
+* [ ] Reload Model
+* [ ] Predict Again
+
+---
+
+# Phase 1: Understanding Trained Models
+
+## What Gets Saved?
+
+Example:
+
+```python
+LinearRegression()
+```
+
+Contains:
+
+```text
+Learned Coefficients
+Intercept
+Parameters
+Metadata
+```
+
+---
+
+## Understand
+
+Model is just:
+
+```text
+Parameters
++
+Configuration
+```
+
+---
+
+## Exercises
+
+* [ ] Inspect model attributes
+* [ ] View coefficients
+* [ ] Compare before and after loading
+
+---
+
+# Phase 2: Serialization Fundamentals
+
+## Topics
+
+### Serialization
+
+```text
+Object
+ ↓
+File
+```
+
+### Deserialization
+
+```text
+File
+ ↓
+Object
+```
+
+---
+
+## Requirements
+
+Need to preserve:
+
+* Parameters
+* State
+* Metadata
+
+---
+
+## Mastery Checklist
+
+* [ ] Explain serialization
+* [ ] Explain deserialization
+* [ ] Explain persistence
+
+---
+
+# Phase 3: Pickle
+
+## What is Pickle?
+
+Python's built-in serialization library.
+
+---
+
+## Save
+
+```python
+import pickle
+
+with open("model.pkl","wb") as f:
+    pickle.dump(model,f)
+```
+
+---
+
+## Load
+
+```python
+with open("model.pkl","rb") as f:
+    model = pickle.load(f)
+```
+
+---
+
+## Advantages
+
+* Built into Python
+* Simple
+* Supports many objects
+
+---
+
+## Disadvantages
+
+* Python-specific
+* Security risks
+* Not language portable
+
+---
+
+## Exercises
+
+* [ ] Save classifier
+* [ ] Save regressor
+* [ ] Save preprocessing objects
+
+---
+
+# Phase 4: Joblib
+
+## Why Joblib?
+
+Optimized for:
+
+```text
+Large NumPy Arrays
+Scikit-Learn Models
+```
+
+---
+
+## Save
+
+```python
+import joblib
+
+joblib.dump(model,"model.joblib")
+```
+
+---
+
+## Load
+
+```python
+model = joblib.load("model.joblib")
+```
+
+---
+
+## Advantages
+
+* Faster
+* Better compression
+* Efficient memory usage
+
+---
+
+## When to Use
+
+```text
+Scikit-Learn
+Random Forest
+XGBoost
+Large Pipelines
+```
+
+---
+
+## Exercises
+
+* [ ] Compare pickle vs joblib
+* [ ] Benchmark load times
+
+---
+
+# Phase 5: Cloudpickle
+
+## Why Cloudpickle?
+
+Can serialize:
+
+* Lambdas
+* Custom functions
+* Complex Python objects
+
+---
+
+## Example
+
+```python
+import cloudpickle
+```
+
+---
+
+## Use Cases
+
+* Distributed systems
+* Spark
+* Ray
+
+---
+
+## Exercises
+
+* [ ] Serialize custom transformers
+* [ ] Serialize lambda functions
+
+---
+
+# Phase 6: Saving Entire Pipelines
+
+## Problem
+
+Need to save:
+
+```text
+Scaler
+Encoder
+Model
+```
+
+Not just model.
+
+---
+
+## Pipeline
+
+```python
+Pipeline([
+    ("scaler", scaler),
+    ("model", model)
+])
+```
+
+---
+
+## Save
+
+```python
+joblib.dump(pipe,"pipeline.joblib")
+```
+
+---
+
+## Benefits
+
+Avoids:
+
+```text
+Training/Inference Mismatch
+```
+
+---
+
+## Exercises
+
+* [ ] Save complete sklearn pipeline
+* [ ] Reload pipeline
+
+---
+
+# Phase 7: Model Versioning
+
+## Why?
+
+Models change.
+
+```text
+v1
+v2
+v3
+```
+
+---
+
+## Track
+
+* Hyperparameters
+* Dataset version
+* Metrics
+
+---
+
+## Tools
+
+* Git
+* DVC
+* MLflow
+
+---
+
+## Exercises
+
+* [ ] Create model versions
+* [ ] Compare versions
+
+---
+
+# Phase 8: ONNX
+
+## Open Neural Network Exchange
+
+Goal:
+
+```text
+Train Anywhere
+Run Anywhere
+```
+
+---
+
+## Benefits
+
+* Cross-language
+* Cross-platform
+* Faster inference
+
+---
+
+## Workflow
+
+```text
+Python
+ ↓
+ONNX
+ ↓
+C++
+Java
+Mobile
+```
+
+---
+
+## Exercises
+
+* [ ] Convert sklearn model to ONNX
+* [ ] Run ONNX Runtime
+
+---
+
+# Phase 9: TensorFlow SavedModel
+
+## Standard TensorFlow Format
+
+Structure:
+
+```text
+saved_model/
+├── assets
+├── variables
+└── saved_model.pb
+```
+
+---
+
+## Save
+
+```python
+model.save("saved_model")
+```
+
+---
+
+## Load
+
+```python
+tf.keras.models.load_model()
+```
+
+---
+
+# Phase 10: Keras Model Formats
+
+## H5 Format
+
+```python
+model.save("model.h5")
+```
+
+---
+
+## Native Keras Format
+
+```python
+model.save("model.keras")
+```
+
+---
+
+## Compare
+
+* H5
+* SavedModel
+* Keras
+
+---
+
+# Phase 11: PyTorch Serialization
+
+## Save Weights
+
+```python
+torch.save(model.state_dict(),"model.pt")
+```
+
+---
+
+## Load
+
+```python
+model.load_state_dict(...)
+```
+
+---
+
+## Understand
+
+Best practice:
+
+```text
+Save Weights
+Not Entire Object
+```
+
+---
+
+# Phase 12: TorchScript
+
+## Goal
+
+Deploy PyTorch without Python.
+
+---
+
+## Workflow
+
+```text
+PyTorch
+ ↓
+TorchScript
+ ↓
+Production
+```
+
+---
+
+## Use Cases
+
+* Mobile
+* Edge Devices
+* C++ Systems
+
+---
+
+# Phase 13: Model Packaging
+
+## Package Includes
+
+```text
+Model
+Preprocessing
+Dependencies
+Configuration
+```
+
+---
+
+## Folder Structure
+
+```text
+project/
+├── model/
+├── config/
+├── artifacts/
+├── inference/
+```
+
+---
+
+# Phase 14: Inference Pipelines
+
+## Flow
+
+```text
+Input
+ ↓
+Validation
+ ↓
+Transformation
+ ↓
+Prediction
+ ↓
+Output
+```
+
+---
+
+## Exercises
+
+* [ ] Build inference pipeline
+* [ ] Validate inputs
+
+---
+
+# Phase 15: Deployment Artifacts
+
+## Common Files
+
+```text
+model.pkl
+model.joblib
+model.onnx
+model.pt
+model.h5
+saved_model/
+```
+
+---
+
+## Understand
+
+Artifact = deployable asset.
+
+---
+
+# Phase 16: MLflow
+
+## Features
+
+* Experiment Tracking
+* Model Registry
+* Artifact Storage
+
+---
+
+## Concepts
+
+```text
+Run
+Experiment
+Artifact
+Registry
+```
+
+---
+
+## Exercises
+
+* [ ] Log model
+* [ ] Register model
+
+---
+
+# Phase 17: BentoML
+
+## Purpose
+
+Serve models easily.
+
+---
+
+## Features
+
+* API generation
+* Packaging
+* Deployment
+
+---
+
+# Phase 18: Model Registries
+
+## Tools
+
+* MLflow Registry
+* SageMaker Registry
+* Vertex Registry
+
+---
+
+## Benefits
+
+Track:
+
+```text
+Production Models
+Staging Models
+Archived Models
+```
+
+---
+
+# Phase 19: Production Considerations
+
+## Challenges
+
+### Version Drift
+
+### Data Drift
+
+### Dependency Drift
+
+### Schema Drift
+
+---
+
+## Monitoring
+
+* Latency
+* Accuracy
+* Throughput
+
+---
+
+# Phase 20: Real Projects
+
+## Scikit-Learn Project
+
+Save:
+
+```text
+Scaler
+Encoder
+Model
+```
+
+---
+
+## Deep Learning Project
+
+Save:
+
+```text
+Weights
+Architecture
+Tokenizer
+```
+
+---
+
+## End-to-End Deployment
+
+```text
+Training
+ ↓
+Serialization
+ ↓
+API
+ ↓
+Production
+```
+
+---
+
+# Phase 21: Expert Mastery
+
+## Can Explain
+
+* Pickle Internals
+* Joblib Compression
+* ONNX Architecture
+* SavedModel Structure
+* Torch Serialization
+
+---
+
+## Can Build
+
+* Production-ready artifacts
+* Versioned model systems
+* Reproducible deployment pipelines
+
+---
+
+## Veteran Questions
+
+* Why is Pickle unsafe?
+* Why is Joblib faster for sklearn?
+* When should ONNX be preferred?
+* Why save pipelines instead of models?
+* Why save weights instead of entire PyTorch objects?
+* What causes model incompatibility across versions?
+* How would you design a model registry from scratch?
+
+---
+
+# Final Mastery Checklist
+
+## Beginner
+
+* [ ] Save model using Pickle
+* [ ] Save model using Joblib
+* [ ] Load saved model
+
+## Intermediate
+
+* [ ] Save full pipelines
+* [ ] Version models
+* [ ] Package artifacts
+
+## Advanced
+
+* [ ] Use ONNX
+* [ ] Use MLflow
+* [ ] Deploy serialized models
+
+## Expert
+
+* [ ] Build model registries
+* [ ] Design production artifact systems
+* [ ] Explain serialization internals
+* [ ] Build enterprise deployment workflows
+
+```
+```
+# 💾 ML Model Serialization & Deployment Artifacts Mastery Checklist
+
+> A complete roadmap covering model saving, loading, serialization, packaging, portability, deployment artifacts, and production inference workflows.
+
+---
+
+# Table of Contents
+
+1. Phase 0: Why Model Serialization Exists
+2. Phase 1: Understanding Trained Models
+3. Phase 2: Serialization Fundamentals
+4. Phase 3: Pickle
+5. Phase 4: Joblib
+6. Phase 5: Cloudpickle
+7. Phase 6: Saving Entire Pipelines
+8. Phase 7: Model Versioning
+9. Phase 8: ONNX
+10. Phase 9: TensorFlow SavedModel
+11. Phase 10: Keras Model Formats
+12. Phase 11: PyTorch Serialization
+13. Phase 12: TorchScript
+14. Phase 13: Model Packaging
+15. Phase 14: Inference Pipelines
+16. Phase 15: Deployment Artifacts
+17. Phase 16: MLflow
+18. Phase 17: BentoML
+19. Phase 18: Model Registries
+20. Phase 19: Production Considerations
+21. Phase 20: Real Projects
+22. Phase 21: Expert Mastery
+
+---
+
+# Phase 0: Why Model Serialization Exists
+
+## The Problem
+
+Training takes time.
+
+```text
+Raw Data
+      ↓
+Training
+      ↓
+Model
+      ↓
+Prediction
+```
+
+Without serialization:
+
+```text
+Restart Program
+      ↓
+Retrain Again
+      ↓
+Waste Time
+```
+
+---
+
+## Solution
+
+Save trained model.
+
+```text
+Train Once
+     ↓
+Save
+     ↓
+Load
+     ↓
+Predict
+```
+
+---
+
+## Understand
+
+Serialization means:
+
+```text
+Python Object
+      ↓
+Byte Stream
+      ↓
+File
+```
+
+Deserialization means:
+
+```text
+File
+ ↓
+Bytes
+ ↓
+Python Object
+```
+
+---
+
+## Exercises
+
+* [ ] Train Linear Regression
+* [ ] Save Model
+* [ ] Reload Model
+* [ ] Predict Again
+
+---
+
+# Phase 1: Understanding Trained Models
+
+## What Gets Saved?
+
+Example:
+
+```python
+LinearRegression()
+```
+
+Contains:
+
+```text
+Learned Coefficients
+Intercept
+Parameters
+Metadata
+```
+
+---
+
+## Understand
+
+Model is just:
+
+```text
+Parameters
++
+Configuration
+```
+
+---
+
+## Exercises
+
+* [ ] Inspect model attributes
+* [ ] View coefficients
+* [ ] Compare before and after loading
+
+---
+
+# Phase 2: Serialization Fundamentals
+
+## Topics
+
+### Serialization
+
+```text
+Object
+ ↓
+File
+```
+
+### Deserialization
+
+```text
+File
+ ↓
+Object
+```
+
+---
+
+## Requirements
+
+Need to preserve:
+
+* Parameters
+* State
+* Metadata
+
+---
+
+## Mastery Checklist
+
+* [ ] Explain serialization
+* [ ] Explain deserialization
+* [ ] Explain persistence
+
+---
+
+# Phase 3: Pickle
+
+## What is Pickle?
+
+Python's built-in serialization library.
+
+---
+
+## Save
+
+```python
+import pickle
+
+with open("model.pkl","wb") as f:
+    pickle.dump(model,f)
+```
+
+---
+
+## Load
+
+```python
+with open("model.pkl","rb") as f:
+    model = pickle.load(f)
+```
+
+---
+
+## Advantages
+
+* Built into Python
+* Simple
+* Supports many objects
+
+---
+
+## Disadvantages
+
+* Python-specific
+* Security risks
+* Not language portable
+
+---
+
+## Exercises
+
+* [ ] Save classifier
+* [ ] Save regressor
+* [ ] Save preprocessing objects
+
+---
+
+# Phase 4: Joblib
+
+## Why Joblib?
+
+Optimized for:
+
+```text
+Large NumPy Arrays
+Scikit-Learn Models
+```
+
+---
+
+## Save
+
+```python
+import joblib
+
+joblib.dump(model,"model.joblib")
+```
+
+---
+
+## Load
+
+```python
+model = joblib.load("model.joblib")
+```
+
+---
+
+## Advantages
+
+* Faster
+* Better compression
+* Efficient memory usage
+
+---
+
+## When to Use
+
+```text
+Scikit-Learn
+Random Forest
+XGBoost
+Large Pipelines
+```
+
+---
+
+## Exercises
+
+* [ ] Compare pickle vs joblib
+* [ ] Benchmark load times
+
+---
+
+# Phase 5: Cloudpickle
+
+## Why Cloudpickle?
+
+Can serialize:
+
+* Lambdas
+* Custom functions
+* Complex Python objects
+
+---
+
+## Example
+
+```python
+import cloudpickle
+```
+
+---
+
+## Use Cases
+
+* Distributed systems
+* Spark
+* Ray
+
+---
+
+## Exercises
+
+* [ ] Serialize custom transformers
+* [ ] Serialize lambda functions
+
+---
+
+# Phase 6: Saving Entire Pipelines
+
+## Problem
+
+Need to save:
+
+```text
+Scaler
+Encoder
+Model
+```
+
+Not just model.
+
+---
+
+## Pipeline
+
+```python
+Pipeline([
+    ("scaler", scaler),
+    ("model", model)
+])
+```
+
+---
+
+## Save
+
+```python
+joblib.dump(pipe,"pipeline.joblib")
+```
+
+---
+
+## Benefits
+
+Avoids:
+
+```text
+Training/Inference Mismatch
+```
+
+---
+
+## Exercises
+
+* [ ] Save complete sklearn pipeline
+* [ ] Reload pipeline
+
+---
+
+# Phase 7: Model Versioning
+
+## Why?
+
+Models change.
+
+```text
+v1
+v2
+v3
+```
+
+---
+
+## Track
+
+* Hyperparameters
+* Dataset version
+* Metrics
+
+---
+
+## Tools
+
+* Git
+* DVC
+* MLflow
+
+---
+
+## Exercises
+
+* [ ] Create model versions
+* [ ] Compare versions
+
+---
+
+# Phase 8: ONNX
+
+## Open Neural Network Exchange
+
+Goal:
+
+```text
+Train Anywhere
+Run Anywhere
+```
+
+---
+
+## Benefits
+
+* Cross-language
+* Cross-platform
+* Faster inference
+
+---
+
+## Workflow
+
+```text
+Python
+ ↓
+ONNX
+ ↓
+C++
+Java
+Mobile
+```
+
+---
+
+## Exercises
+
+* [ ] Convert sklearn model to ONNX
+* [ ] Run ONNX Runtime
+
+---
+
+# Phase 9: TensorFlow SavedModel
+
+## Standard TensorFlow Format
+
+Structure:
+
+```text
+saved_model/
+├── assets
+├── variables
+└── saved_model.pb
+```
+
+---
+
+## Save
+
+```python
+model.save("saved_model")
+```
+
+---
+
+## Load
+
+```python
+tf.keras.models.load_model()
+```
+
+---
+
+# Phase 10: Keras Model Formats
+
+## H5 Format
+
+```python
+model.save("model.h5")
+```
+
+---
+
+## Native Keras Format
+
+```python
+model.save("model.keras")
+```
+
+---
+
+## Compare
+
+* H5
+* SavedModel
+* Keras
+
+---
+
+# Phase 11: PyTorch Serialization
+
+## Save Weights
+
+```python
+torch.save(model.state_dict(),"model.pt")
+```
+
+---
+
+## Load
+
+```python
+model.load_state_dict(...)
+```
+
+---
+
+## Understand
+
+Best practice:
+
+```text
+Save Weights
+Not Entire Object
+```
+
+---
+
+# Phase 12: TorchScript
+
+## Goal
+
+Deploy PyTorch without Python.
+
+---
+
+## Workflow
+
+```text
+PyTorch
+ ↓
+TorchScript
+ ↓
+Production
+```
+
+---
+
+## Use Cases
+
+* Mobile
+* Edge Devices
+* C++ Systems
+
+---
+
+# Phase 13: Model Packaging
+
+## Package Includes
+
+```text
+Model
+Preprocessing
+Dependencies
+Configuration
+```
+
+---
+
+## Folder Structure
+
+```text
+project/
+├── model/
+├── config/
+├── artifacts/
+├── inference/
+```
+
+---
+
+# Phase 14: Inference Pipelines
+
+## Flow
+
+```text
+Input
+ ↓
+Validation
+ ↓
+Transformation
+ ↓
+Prediction
+ ↓
+Output
+```
+
+---
+
+## Exercises
+
+* [ ] Build inference pipeline
+* [ ] Validate inputs
+
+---
+
+# Phase 15: Deployment Artifacts
+
+## Common Files
+
+```text
+model.pkl
+model.joblib
+model.onnx
+model.pt
+model.h5
+saved_model/
+```
+
+---
+
+## Understand
+
+Artifact = deployable asset.
+
+---
+
+# Phase 16: MLflow
+
+## Features
+
+* Experiment Tracking
+* Model Registry
+* Artifact Storage
+
+---
+
+## Concepts
+
+```text
+Run
+Experiment
+Artifact
+Registry
+```
+
+---
+
+## Exercises
+
+* [ ] Log model
+* [ ] Register model
+
+---
+
+# Phase 17: BentoML
+
+## Purpose
+
+Serve models easily.
+
+---
+
+## Features
+
+* API generation
+* Packaging
+* Deployment
+
+---
+
+# Phase 18: Model Registries
+
+## Tools
+
+* MLflow Registry
+* SageMaker Registry
+* Vertex Registry
+
+---
+
+## Benefits
+
+Track:
+
+```text
+Production Models
+Staging Models
+Archived Models
+```
+
+---
+
+# Phase 19: Production Considerations
+
+## Challenges
+
+### Version Drift
+
+### Data Drift
+
+### Dependency Drift
+
+### Schema Drift
+
+---
+
+## Monitoring
+
+* Latency
+* Accuracy
+* Throughput
+
+---
+
+# Phase 20: Real Projects
+
+## Scikit-Learn Project
+
+Save:
+
+```text
+Scaler
+Encoder
+Model
+```
+
+---
+
+## Deep Learning Project
+
+Save:
+
+```text
+Weights
+Architecture
+Tokenizer
+```
+
+---
+
+## End-to-End Deployment
+
+```text
+Training
+ ↓
+Serialization
+ ↓
+API
+ ↓
+Production
+```
+
+---
+
+# Phase 21: Expert Mastery
+
+## Can Explain
+
+* Pickle Internals
+* Joblib Compression
+* ONNX Architecture
+* SavedModel Structure
+* Torch Serialization
+
+---
+
+## Can Build
+
+* Production-ready artifacts
+* Versioned model systems
+* Reproducible deployment pipelines
+
+---
+
+## Veteran Questions
+
+* Why is Pickle unsafe?
+* Why is Joblib faster for sklearn?
+* When should ONNX be preferred?
+* Why save pipelines instead of models?
+* Why save weights instead of entire PyTorch objects?
+* What causes model incompatibility across versions?
+* How would you design a model registry from scratch?
+
+---
+
+# Final Mastery Checklist
+
+## Beginner
+
+* [ ] Save model using Pickle
+* [ ] Save model using Joblib
+* [ ] Load saved model
+
+## Intermediate
+
+* [ ] Save full pipelines
+* [ ] Version models
+* [ ] Package artifacts
+
+## Advanced
+
+* [ ] Use ONNX
+* [ ] Use MLflow
+* [ ] Deploy serialized models
+
+## Expert
+
+* [ ] Build model registries
+* [ ] Design production artifact systems
+* [ ] Explain serialization internals
+* [ ] Build enterprise deployment workflows
+
+```
+```
+# 🔍 Model Explainability & Interpretability Mastery Checklist
+
+> A complete roadmap covering Machine Learning Explainability from fundamentals to advanced techniques including Feature Importance, Permutation Importance, SHAP, LIME, Partial Dependence Plots, ICE Plots, Counterfactual Explanations, Explainable AI (XAI), and production explainability systems.
+
+---
+
+# Table of Contents
+
+1. Phase 0: Why Explainability Exists
+2. Phase 1: Interpretability vs Explainability
+3. Phase 2: Black Box vs White Box Models
+4. Phase 3: Feature Importance Fundamentals
+5. Phase 4: Coefficient-Based Explainability
+6. Phase 5: Tree-Based Feature Importance
+7. Phase 6: Permutation Importance
+8. Phase 7: Partial Dependence Plots (PDP)
+9. Phase 8: Individual Conditional Expectation (ICE)
+10. Phase 9: Global vs Local Explanations
+11. Phase 10: LIME
+12. Phase 11: SHAP Fundamentals
+13. Phase 12: Shapley Values Theory
+14. Phase 13: TreeSHAP
+15. Phase 14: DeepSHAP
+16. Phase 15: KernelSHAP
+17. Phase 16: SHAP Visualizations
+18. Phase 17: Counterfactual Explanations
+19. Phase 18: Explainability for NLP
+20. Phase 19: Explainability for Computer Vision
+21. Phase 20: Explainability for Deep Learning
+22. Phase 21: Fairness & Bias Analysis
+23. Phase 22: Explainability in Production
+24. Phase 23: Regulatory Explainability
+25. Phase 24: Real Projects
+26. Phase 25: Expert Mastery
+
+---
+
+# Phase 0: Why Explainability Exists
+
+## The Problem
+
+Model predicts:
+
+```text
+Loan = Rejected
+```
+
+Question:
+
+```text
+Why?
+```
+
+Without explainability:
+
+```text
+Input
+ ↓
+Black Box
+ ↓
+Prediction
+```
+
+---
+
+## Real World Need
+
+Industries require explanations:
+
+* Banking
+* Insurance
+* Healthcare
+* Government
+* Legal Systems
+
+---
+
+## First Principles
+
+Machine Learning answers:
+
+```text
+What?
+```
+
+Explainability answers:
+
+```text
+Why?
+```
+
+---
+
+## Understand
+
+Two models can have:
+
+```text
+Same Accuracy
+Different Explainability
+```
+
+---
+
+## Exercises
+
+* [ ] Explain a prediction manually
+* [ ] Compare explainable vs black-box models
+
+---
+
+## Mastery Checklist
+
+* [ ] Explain why explainability matters
+* [ ] Explain trust in ML systems
+* [ ] Explain model transparency
+
+---
+
+# Phase 1: Interpretability vs Explainability
+
+## Interpretability
+
+Human can understand directly.
+
+Example:
+
+```text
+Linear Regression
+Decision Tree
+```
+
+---
+
+## Explainability
+
+Need extra methods.
+
+Example:
+
+```text
+Random Forest
+XGBoost
+Neural Networks
+```
+
+---
+
+## Comparison
+
+```text
+Interpretable
+ ↓
+Transparent
+
+Explainable
+ ↓
+Post-Hoc Explanation
+```
+
+---
+
+## Exercises
+
+* [ ] Compare Logistic Regression vs XGBoost
+* [ ] Compare Tree vs Neural Network
+
+---
+
+# Phase 2: Black Box vs White Box Models
+
+## White Box Models
+
+### Linear Regression
+
+```text
+Prediction
+=
+Intercept
++
+Coefficient × Feature
+```
+
+---
+
+### Logistic Regression
+
+---
+
+### Small Decision Trees
+
+---
+
+## Black Box Models
+
+### Random Forest
+
+### XGBoost
+
+### LightGBM
+
+### CatBoost
+
+### Neural Networks
+
+### Transformers
+
+---
+
+## Understand
+
+```text
+More Complexity
+       ↓
+Less Interpretability
+```
+
+---
+
+# Phase 3: Feature Importance Fundamentals
+
+## Question
+
+Which features matter most?
+
+---
+
+## Example
+
+```text
+Age
+Income
+Credit Score
+Loan Amount
+```
+
+Importance:
+
+```text
+Credit Score = 45%
+Income = 30%
+Age = 15%
+Loan = 10%
+```
+
+---
+
+## Types
+
+### Global Importance
+
+Whole model.
+
+### Local Importance
+
+Single prediction.
+
+---
+
+## Exercises
+
+* [ ] Rank features
+* [ ] Visualize importance
+
+---
+
+# Phase 4: Coefficient-Based Explainability
+
+## Linear Regression
+
+```text
+y = β0 + β1x1 + β2x2
+```
+
+---
+
+## Interpretation
+
+```text
+β1 = +5
+```
+
+Means:
+
+```text
+Increase x1 by 1
+↓
+Prediction increases by 5
+```
+
+---
+
+## Logistic Regression
+
+Interpret coefficients using:
+
+```text
+Odds Ratios
+```
+
+---
+
+## Exercises
+
+* [ ] Interpret coefficients
+* [ ] Convert coefficients to odds ratios
+
+---
+
+# Phase 5: Tree-Based Feature Importance
+
+## Decision Trees
+
+Importance based on:
+
+```text
+Information Gain
+```
+
+or
+
+```text
+Gini Reduction
+```
+
+---
+
+## Random Forest
+
+Average importance across trees.
+
+---
+
+## XGBoost
+
+Importance Types:
+
+* Weight
+* Gain
+* Cover
+
+---
+
+## Limitations
+
+Can be biased toward:
+
+```text
+High Cardinality Features
+```
+
+---
+
+# Phase 6: Permutation Importance
+
+## Idea
+
+Shuffle one feature.
+
+Measure:
+
+```text
+Performance Drop
+```
+
+---
+
+## Workflow
+
+```text
+Original Accuracy
+       ↓
+Shuffle Feature
+       ↓
+New Accuracy
+       ↓
+Difference
+```
+
+---
+
+## Advantages
+
+Model Agnostic.
+
+Works with:
+
+* Trees
+* Linear Models
+* Deep Learning
+
+---
+
+## Exercises
+
+* [ ] Calculate permutation importance
+* [ ] Compare with tree importance
+
+---
+
+# Phase 7: Partial Dependence Plots (PDP)
+
+## Purpose
+
+Understand relationship between:
+
+```text
+Feature
+     ↓
+Prediction
+```
+
+---
+
+## Example
+
+```text
+Income
+ ↓
+Loan Approval Probability
+```
+
+---
+
+## Understand
+
+Shows:
+
+```text
+Average Model Behavior
+```
+
+---
+
+## Exercises
+
+* [ ] Generate PDP for Age
+* [ ] Generate PDP for Income
+
+---
+
+# Phase 8: Individual Conditional Expectation (ICE)
+
+## Problem with PDP
+
+Averages hide details.
+
+---
+
+## ICE
+
+Shows:
+
+```text
+Individual Predictions
+```
+
+instead of:
+
+```text
+Average Prediction
+```
+
+---
+
+## Comparison
+
+```text
+PDP = Population
+
+ICE = Individual
+```
+
+---
+
+# Phase 9: Global vs Local Explanations
+
+## Global
+
+Explain:
+
+```text
+Entire Model
+```
+
+Examples:
+
+* Feature Importance
+* PDP
+
+---
+
+## Local
+
+Explain:
+
+```text
+Single Prediction
+```
+
+Examples:
+
+* SHAP
+* LIME
+
+---
+
+# Phase 10: LIME
+
+## Local Interpretable Model-Agnostic Explanations
+
+Idea:
+
+Explain complex model with:
+
+```text
+Simple Local Model
+```
+
+---
+
+## Workflow
+
+```text
+Prediction
+ ↓
+Generate Samples
+ ↓
+Fit Local Model
+ ↓
+Explain
+```
+
+---
+
+## Advantages
+
+* Model Agnostic
+* Easy to Understand
+
+---
+
+## Limitations
+
+* Can be unstable
+* Different runs may differ
+
+---
+
+## Exercises
+
+* [ ] Explain single prediction
+* [ ] Compare LIME explanations
+
+---
+
+# Phase 11: SHAP Fundamentals
+
+## What is SHAP?
+
+SHAP =
+
+```text
+SHapley Additive exPlanations
+```
+
+---
+
+## Goal
+
+Fairly distribute prediction among features.
+
+---
+
+## Example
+
+Prediction:
+
+```text
+Loan Approval = 80%
+```
+
+Contributions:
+
+```text
+Income       +20%
+Credit Score +30%
+Age          -10%
+Base Value   +40%
+```
+
+---
+
+## Final
+
+```text
+40 + 20 + 30 - 10 = 80
+```
+
+---
+
+## Why SHAP?
+
+Provides:
+
+* Local Explanations
+* Global Explanations
+* Consistent Explanations
+
+---
+
+# Phase 12: Shapley Values Theory
+
+## Origin
+
+Game Theory.
+
+---
+
+## Problem
+
+Several players contribute.
+
+How much credit should each receive?
+
+---
+
+## Example
+
+```text
+Player A
+Player B
+Player C
+```
+
+Shared reward:
+
+```text
+$100
+```
+
+Need fair allocation.
+
+---
+
+## ML Mapping
+
+```text
+Players → Features
+
+Reward → Prediction
+```
+
+---
+
+## Understand
+
+SHAP calculates:
+
+```text
+Marginal Contribution
+```
+
+across all possible feature combinations.
+
+---
+
+## Expert Questions
+
+Why is SHAP computationally expensive?
+
+---
+
+# Phase 13: TreeSHAP
+
+## Optimized SHAP
+
+For:
+
+* Random Forest
+* XGBoost
+* LightGBM
+* CatBoost
+
+---
+
+## Benefits
+
+```text
+Fast
+Accurate
+Exact
+```
+
+---
+
+## Exercises
+
+* [ ] Explain XGBoost model
+* [ ] Generate SHAP summary plot
+
+---
+
+# Phase 14: DeepSHAP
+
+## Purpose
+
+Explain Neural Networks.
+
+---
+
+## Used For
+
+* MLPs
+* CNNs
+* Deep Learning Models
+
+---
+
+# Phase 15: KernelSHAP
+
+## Universal SHAP
+
+Works for:
+
+```text
+Any Model
+```
+
+---
+
+## Limitation
+
+Very slow.
+
+---
+
+# Phase 16: SHAP Visualizations
+
+## Summary Plot
+
+Shows:
+
+```text
+Feature Importance
++
+Direction
+```
+
+---
+
+## Bar Plot
+
+---
+
+## Force Plot
+
+Explains:
+
+```text
+Single Prediction
+```
+
+---
+
+## Waterfall Plot
+
+Shows:
+
+```text
+Base Value
+ ↓
+Feature Contributions
+ ↓
+Final Prediction
+```
+
+---
+
+## Dependence Plot
+
+Shows:
+
+```text
+Feature Value
+ ↓
+SHAP Contribution
+```
+
+---
+
+## Exercises
+
+* [ ] Generate all SHAP plots
+* [ ] Interpret each visualization
+
+---
+
+# Phase 17: Counterfactual Explanations
+
+## Question
+
+What should change to get another prediction?
+
+---
+
+## Example
+
+Rejected Loan.
+
+Counterfactual:
+
+```text
+If Income + ₹10,000
+↓
+Loan Approved
+```
+
+---
+
+## Understand
+
+Focuses on:
+
+```text
+Actionable Explanation
+```
+
+---
+
+# Phase 18: Explainability for NLP
+
+## Techniques
+
+### Attention Visualization
+
+### SHAP for Text
+
+### LIME for Text
+
+### Integrated Gradients
+
+---
+
+## Applications
+
+* Sentiment Analysis
+* Spam Detection
+* Chatbots
+
+---
+
+# Phase 19: Explainability for Computer Vision
+
+## Techniques
+
+### Saliency Maps
+
+### Grad-CAM
+
+### Integrated Gradients
+
+### Occlusion Maps
+
+---
+
+## Applications
+
+* Medical Imaging
+* Object Detection
+* Face Recognition
+
+---
+
+# Phase 20: Explainability for Deep Learning
+
+## Challenges
+
+Deep Models:
+
+```text
+Millions of Parameters
+```
+
+---
+
+## Techniques
+
+* SHAP
+* DeepSHAP
+* LIME
+* Integrated Gradients
+* Grad-CAM
+
+---
+
+# Phase 21: Fairness & Bias Analysis
+
+## Questions
+
+Does model favor:
+
+* Gender?
+* Race?
+* Region?
+* Age Group?
+
+---
+
+## Metrics
+
+### Demographic Parity
+
+### Equal Opportunity
+
+### Equalized Odds
+
+---
+
+## Exercises
+
+* [ ] Measure fairness
+* [ ] Detect bias
+
+---
+
+# Phase 22: Explainability in Production
+
+## Monitoring
+
+Track:
+
+* Feature Importance Drift
+* SHAP Drift
+* Data Drift
+
+---
+
+## Logging
+
+Store:
+
+```text
+Prediction
+Explanation
+Timestamp
+```
+
+---
+
+# Phase 23: Regulatory Explainability
+
+## Regulations
+
+### GDPR
+
+### AI Act
+
+### Banking Regulations
+
+---
+
+## Requirements
+
+Provide:
+
+```text
+Reason For Decision
+```
+
+---
+
+# Phase 24: Real Projects
+
+## Loan Approval
+
+* SHAP
+* Counterfactuals
+
+---
+
+## Customer Churn
+
+* PDP
+* Feature Importance
+
+---
+
+## Fraud Detection
+
+* SHAP
+* LIME
+
+---
+
+## Medical Diagnosis
+
+* Grad-CAM
+* SHAP
+
+---
+
+# Phase 25: Expert Mastery
+
+## Can Explain
+
+* SHAP mathematically
+* Shapley values
+* LIME internals
+* PDP limitations
+* Counterfactual theory
+
+---
+
+## Can Build
+
+* Explainable ML pipelines
+* Regulatory-compliant ML systems
+* Production monitoring systems
+
+---
+
+## Veteran Questions
+
+* Why is SHAP based on game theory?
+* Why is SHAP more reliable than LIME?
+* Why can feature importance be misleading?
+* When should PDP not be used?
+* Why are SHAP values additive?
+* Why is KernelSHAP slow?
+* How would you explain a transformer model?
+* Can explainability improve model accuracy?
+
+---
+
+# Final Mastery Checklist
+
+## Beginner
+
+* [ ] Understand feature importance
+* [ ] Understand PDP
+* [ ] Understand SHAP basics
+
+## Intermediate
+
+* [ ] Use SHAP
+* [ ] Use LIME
+* [ ] Explain individual predictions
+
+## Advanced
+
+* [ ] Explain deep learning models
+* [ ] Use counterfactual explanations
+* [ ] Measure fairness
+
+## Expert
+
+* [ ] Build explainability platforms
+* [ ] Implement production XAI systems
+* [ ] Explain SHAP mathematically
+* [ ] Design explainable AI architecture
+
+```
+```
